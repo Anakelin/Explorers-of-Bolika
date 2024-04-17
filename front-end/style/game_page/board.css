@@ -1,0 +1,117 @@
+:root {
+    --user: #ae2c2c;
+    --user-highlight: #c83e3e;
+    --hall: #3d2525;
+    --hall-highlight: #6c3e3e;
+    --room: #301d1d;
+    --room-highlight: #612929;
+    --floor: #3d2525;
+    --walkable: #6c3e3e;
+    --wall: #0c0c0c;
+}
+
+#board-box {
+    height: 30vw;
+    width: 30vw;
+    display: inline-block;
+    border: 3px solid var(--blackgrey);
+  }
+
+#board-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+#board-front, #board-back {
+    background-color: var(--blackblackgrey);
+}
+
+#board-back {
+    transform: rotateX(180deg);
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 0;
+}
+#map > div:not(.wall){
+    border: 0.5vw solid var(--blackgrey);
+    transition: 300ms ease-out;
+    cursor: pointer;
+}
+
+.wall {
+    border: 0.5vw solid var(--blackblackgrey);  /* for size consistency with other cells, otherwise it can be smaller than the other cells*/
+    background-color: var(--wall);
+}
+
+.room, .hall, .spawn {
+    background-color: var(--floor);
+}
+
+.highlight-cell {
+    background-color: var(--whitegrey);
+}
+
+.move-cell{
+    background-color: var(--walkable);
+}
+
+.room {
+    background-color: var(--room);
+}
+
+.hall {
+    background-color: var(--hall);
+}
+
+.move-cell.hall {
+    background-color: var(--hall-highlight);
+}
+
+.move-cell.room {
+    background-color: var(--room-highlight);
+}
+
+.spawn {
+    background-image: url(../../resources/game_page/pageres/entrance_icon.png);
+}
+
+.bonfire {
+    background-image: url(../../resources/game_page/pageres/temp_icon.png);
+}
+
+.treasure {
+    background-image: url(../../resources/game_page/pageres/treasure_icon.png);
+}
+
+.move-cell:hover {
+    background-color: var(--user-highlight);
+}
+
+.enem {
+    
+    background-image: url(../../resources/game_page/pageres/enemy_icon.png);
+}
+
+.treasure, .bonfire, .enem, .hall, .room, .spawn{
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    transition: 300ms ease-out;
+}
+
+.move-cell.treasure, .move-cell.bonfire, .move-cell.enem, .move-cell.hall, .move-cell.room, .move-cell.spawn  {
+    opacity: 1.0;
+}
+
+.user-cell {
+    background-color: var(--user);
+    background-image: none;
+}

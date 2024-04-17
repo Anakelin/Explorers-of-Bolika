@@ -1,0 +1,59 @@
+:root {
+    --blackblackgrey: #0c0c0c;
+    --blackgrey: #1c1c1c;
+    --red: #ae2c2c;
+    --red-highlight: #c83e3e;
+    --whitegrey: #9b9b9b;
+    --radius: 1vh;
+    --font-height:5vh;
+    --font-height-normal: 4vh;
+}
+
+html,body {
+  margin: 5vh;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: var(--blackblackgrey);
+  color: white;
+  z-index: -3;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid var(--blackgrey);
+    border-radius: 50%;
+    border-top: 16px solid var(--red-highlight);
+    -webkit-animation: spin 550ms linear infinite;
+    animation: spin 550ms linear infinite;
+  }
+
+#loader-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: var(--blackblackgrey);
+}
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

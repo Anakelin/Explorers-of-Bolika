@@ -1,0 +1,84 @@
+:root {
+    --solved:#0f4017;
+    --denied:#481010;
+    --pending:#16465e;
+}
+
+#request-list {
+    height: 100%;
+    width: 90%;
+    border: 2px solid var(--blackgrey);
+    font-size: 8vh;
+}
+
+.request {
+    display: block;
+    width: auto;
+    height: auto;
+    border-bottom: 2px solid var(--blackgrey);
+}
+
+.request > div {
+    display: inline-block;
+    height: auto;
+    text-align: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-left: 2px solid var(--blackgrey);
+}
+
+.request-state {
+    width: 12vw;
+}
+
+.solved {
+    background-color: var(--solved);
+}
+
+.denied {
+    background-color: var(--denied);
+}
+
+.pending {
+    background-color: var(--pending);
+}
+
+#btn-return {
+    position: absolute;
+    bottom: 30%;
+    right: 5%;
+    width: auto;
+    height: var(--font-height/2);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: transparent;
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
+    font-weight: bold;
+}
+
+#btn-return:hover{
+    background-color: var(--blackblackgrey);
+    color: white;
+}
+
+#btn-clean {
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    width: auto;
+    height: var(--font-height/2);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: transparent;
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
+    font-weight: bold;
+}
+
+#btn-clean:hover{
+    background-color: var(--solved);
+    color: white;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/game_page/game_main.css">
+    <link rel="stylesheet" href="./style/game_page/combat.css">
+    <link rel="stylesheet" href="./style/game_page/char.css">
+    <link rel="stylesheet" href="./style/game_page/board.css">
+    <link rel="stylesheet" href="./style/general.css">
+    <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Project Bolika</title>
+</head>
+<body>
+    <div id="loader-back">
+        <div id="loader"></div>
+    </div>
+    <div id="content">
+        <div id="flip-btn"></div>
+    <div id="unflip-btn"></div>
+    <div id="board-box">
+        <div id="board-content">
+            <div id="board-front" class="front">
+                <div id="map"></div>
+            </div> 
+            <div id="board-back" class="back"></div> 
+        </div>
+    </div>
+    <div id="combat-box">
+        <div id="combat-content">
+            <div id="combat-front" class="front"></div> 
+            <div id="combat-back" class="back">
+                <div id="combat-view">
+                    <div id="user-ui" class="char-ui">
+                        <div id="user-bar" class="bar-ui">
+                            <div id="user-hp" class="hp">
+                                <div id="user-hp-bar" class="hp-bar"></div>
+                            </div>
+                            <div id="user-en" class="en">
+                                <div id="user-en-bar" class="en-bar"></div>
+                            </div>
+                        </div>
+                        <div class="char">
+                            <div id="user-char"></div>
+                        </div>    
+                    </div>
+                    
+                    <div id="enemy-ui" class="char-ui">
+                        <div id="enemy-bar" class="bar-ui">
+                            <div id="enemy-hp" class="hp">
+                                <div id="enemy-hp-bar" class="hp-bar"></div>
+                            </div>
+                            <div id="enemy-en" class="en">
+                                <div id="enemy-en-bar" class="en-bar"></div>
+                            </div>
+                        </div>
+                        <div class="char">
+                            <div id="enemy-char"></div>
+                        </div>
+                    </div>
+                                        
+                </div>
+                <div id="ui-view">
+                    <div id="btn-view">
+                        <div id="sk0" class="skill"></div> 
+                        <div id="sk1" class="skill"></div> 
+                        <div id="sk2" class="skill"></div> 
+                        <div id="sk3" class="skill"></div> 
+                    </div>
+                    <div id="forecast-view">
+                        <div id="skill-desc"></div> 
+                    </div>
+                </div>
+                
+            </div> 
+        </div>
+    </div>
+    </div>
+</body>
+<script src="./script/loader.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./script/socket/playerCount.js"></script>
+<script src="./script/general.js"></script>
+<script src="./script/game_page/flip.js" ></script>
+<script src="./script/game_page/skills.js" ></script>
+<script src="./script/game_page/play_skill.js" ></script>
+<script src="./script/game_page/bar_animation.js" ></script>
+<script src="./script/game_page/dynamic_background.js" ></script>
+<script src="./script/game_page/randomBattle.js" ></script>
+<script src="./script/game_page/map_components.js" ></script>
+<script src="./script/game_page/map_generation.js" ></script>
+<script src="./script/game_page/move_generation.js" ></script>
+<script src="./script/game_page/game_script.js" ></script>
+</html>
