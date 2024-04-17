@@ -1,0 +1,12 @@
+{
+  "name": "explorers-of-bolika",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".\\back-end\\server.js",
+  "scripts": {
+    "installdep": "cd .\\back-end && npm install",
+    "start": "cd .\\back-end && node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
