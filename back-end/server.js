@@ -66,10 +66,9 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const port = 2020;
-const { stat } = require('fs');
 const page = '/'+'index.html';
 const directory ='./../front-end';
-const landingPage = directory+page;
+const landingPage = page;
 //const landingPage = './../front-end/log_in.html';
 var path = require('path');
 

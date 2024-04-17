@@ -1,6 +1,8 @@
 
 # Getting Started
 
+This is a project that with node and js <br> simulates the use of a server and multiple users
+
 ## Prerequisites
 
 Node v21.7.3
