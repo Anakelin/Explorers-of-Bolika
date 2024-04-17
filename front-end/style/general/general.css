@@ -1,0 +1,35 @@
+:root {
+  --blacken: #0c0c0ce1;
+  --blackblackgrey: #0c0c0c;
+  --blackgrey: #1c1c1c;
+  --red: #ae2c2c;
+  --red-highlight: #c83e3e;
+  --blood-red: #a90d0d;
+  --blood-red-highlight: #c31010;
+  --whitewhitegrey: #e0dede;
+  --whitegrey: #9b9b9b;
+  --radius: 5px;
+  --font-height:5vh;
+  --font-height-normal: 4vh;
+  --swift-animation:350ms;
+}
+
+html,body{
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  color: var(--whitewhitegrey);
+  font-family: monospace;
+}
+
+label {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn {
+  cursor: pointer;
+  transition:  350ms ease-in-out;
+}

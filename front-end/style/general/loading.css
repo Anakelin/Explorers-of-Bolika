@@ -1,0 +1,25 @@
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid var(--blackgrey);
+    border-radius: 50%;
+    border-top: 16px solid var(--red-highlight);
+    -webkit-animation: spin 550ms linear infinite;
+    animation: spin 550ms linear infinite;
+}
+
+#loader-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: var(--blackblackgrey);
+}

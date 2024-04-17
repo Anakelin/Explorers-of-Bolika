@@ -1,0 +1,104 @@
+
+.content, .content-back, .content-back-back{
+    height: inherit;
+    width: inherit;
+}
+
+.content-back, .content-back-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.title-box {
+    position: relative;
+    margin-left: 35%;
+    margin-right: 35%;
+    top: -1.8vw;
+    width: auto;
+    height: fit-content;
+    box-shadow: 
+        inset -1vh 0 0 var(--blackgrey),
+        inset 0 -1vh 0 var(--blackgrey),
+        inset 1vh 0 0 var(--blackgrey),
+        inset 0 1vh 0 var(--blackgrey);
+    background-color: var(--blackblackgrey);
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    z-index: 2;
+    min-width: 115px;
+}
+.title-box-text {
+    display: block;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.main-box{
+    position: relative;
+    margin: auto;
+    top: 5vw;
+    height: 80%;
+    aspect-ratio: 4/3;
+    border: 1vh solid var(--blackgrey);
+    min-width: 20%;
+    z-index: 1;
+    animation: load-in var(--swift-animation) forwards;
+}
+
+.form-label {
+    position: relative;
+    top: -5vw;
+    left: 30%;
+    margin-top: 20%;
+    text-align: center;
+    color: var(--whitegrey);
+    font-size: 2vw;
+    transition: var(--swift-animation) ease-in-out;
+}
+
+.form-text {
+    width: 40%;
+    background-color: transparent;
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-top: 20%;
+    text-align: center;
+    color: var(--whitegrey);
+    font-size: 1.5vw;
+    border:transparent;
+    border-bottom: 0.5vh solid var(--whitegrey);
+    outline: none;
+    transition: 250ms ease-out;
+}
+
+.form-text:focus {
+    width: 45%;
+}
+
+.form-text:focus, .form-text:focus + .form-label{
+    color: var(--whitewhitegrey);
+}
+
+.main-box-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-repeat: no-repeat;
+    background-color: var(--blacken);
+    z-index: -2;
+}
+
+.btn-box {
+    position:absolute;
+    right: 16vh;
+    bottom: 10vw;
+    width: auto;
+    height: auto;
+    background-color: var(--blacken);
+    animation: load-in var(--swift-animation) forwards;
+    border: 1vh solid var(--blackgrey);
+}
