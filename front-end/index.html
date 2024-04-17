@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html,body {
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    
-    }
-    div {
-      border: 1px solid #000;
-    }
-    #main-box {
-      margin: 5vh;
-      height: 80%;
-      width: 90%;
-      background-color: red;
-    }
-  </style>
+  <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
+  <link rel="stylesheet" href="./style/general.css">
 </head>
 <body>
-  <div id="main-box"></div>
+  <div id="loader-back">
+    <div id="loader"></div>
+</div>
+<div id="content" class="content">
+  <div class="main-box">
+    <div class="title-box">
+      <h1>Log In</h1>
+    </div>
+    <form>
+      <input id="form-user" class="form-text" type="text" placeholder=" " autocomplete="off">
+      <label class="form-label" for="form-user">Username</label>
+      <input id="form-pass" class="form-text" type="password" placeholder=" " autocomplete="off">
+      <label class="form-label" for="form-pass">Password</label>
+    </form>
+    <div class="main-box-back"></div>
+  </div>
+  <div class="content-back"></div>
+  <div class="content-back-back"></div>
+</div>
+  <script src="./script/loader.js"></script>
 </body>
 </html>
 

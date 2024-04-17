@@ -17,3 +17,19 @@ function isClassPresent(id, className) {
     var div = getDiv(id);
     return div.classList.contains(className);
 }
+
+function removeClass(className) {
+    const elements = document.querySelectorAll(`.${className}`);
+    elements.forEach(element => {
+        element.classList.remove(userClass);
+    });
+}
+
+function getClass(className) {
+    const elements = document.querySelectorAll(`.${className}`);
+    if(elements.length != 0) {
+        return elements;
+    } else {
+        return undefined;
+    }
+}

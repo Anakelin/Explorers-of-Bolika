@@ -1,22 +1,117 @@
 :root {
-    --blackblackgrey: #0c0c0c;
-    --blackgrey: #1c1c1c;
-    --red: #ae2c2c;
-    --red-highlight: #c83e3e;
-    --whitegrey: #9b9b9b;
-    --radius: 1vh;
-    --font-height:5vh;
-    --font-height-normal: 4vh;
+  --blacken: #0c0c0ce1;
+  --blackblackgrey: #0c0c0c;
+  --blackgrey: #1c1c1c;
+  --red: #ae2c2c;
+  --red-highlight: #c83e3e;
+  --whitewhitegrey: #e0dede;
+  --whitegrey: #9b9b9b;
+  --radius: 5px;
+  --font-height:5vh;
+  --font-height-normal: 4vh;
 }
 
-html,body {
-  margin: 5vh;
+html,body{
   overflow: hidden;
   height: 100%;
   width: 100%;
+  margin: 0;
+  color: var(--whitewhitegrey);
+  font-family: monospace;
+}
+
+.content, .content-back, .content-back-back{
+  height: inherit;
+  width: inherit;
+}
+
+.content-back, .content-back-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+
+.title-box {
+  position: relative;
+  margin-left: 35%;
+  margin-right: 35%;
+  top: -1.4vw;
+  width: auto;
+  height: fit-content;
+  box-shadow: 
+    inset -1vh 0 0 var(--blackgrey),
+    inset 0 -1vh 0 var(--blackgrey),
+    inset 1vh 0 0 var(--blackgrey),
+    inset 0 1vh 0 var(--blackgrey);
   background-color: var(--blackblackgrey);
-  color: white;
-  z-index: -3;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  z-index: 2;
+  min-width: 115px;
+}
+.title-box > h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 2vw;
+}
+
+.main-box{
+  position: relative;
+  margin: auto;
+  top: 5vw;
+  height: 80%;
+  aspect-ratio: 4/3;
+  border: 1vh solid var(--blackgrey);
+  min-width: 20%;
+  z-index: 1;
+}
+
+.form-label {
+  position: relative;
+  top: -5vw;
+  left: 30%;
+  margin-top: 20%;
+  text-align: center;
+  color: var(--whitegrey);
+  font-size: 2vw;
+  transition: 350ms ease-in-out;
+}
+
+.form-text {
+  width: 40%;
+  background-color: transparent;
+  position: relative;
+  display: block;
+  margin: auto;
+  margin-top: 20%;
+  text-align: center;
+  color: var(--whitegrey);
+  font-size: 1.5vw;
+  border:transparent;
+  border-bottom: 0.5vh solid var(--whitegrey);
+  outline: none;
+  transition: 250ms ease-out;
+}
+
+.form-text:focus {
+  width: 45%;
+}
+
+.form-text:focus, .form-text:focus + .form-label{
+  color: var(--whitewhitegrey);
+}
+
+.main-box-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-repeat: no-repeat;
+  background-color: var(--blacken);
+  z-index: -2;
 }
 
 .btn {
@@ -56,4 +151,22 @@ html,body {
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+  @-webkit-keyframes breathe {
+    0% {
+
+    }
+    100% {
+      filter: blur(0.125vw);
+    }
+  }
+
+  @keyframes breathe {
+    0% {
+      filter: saturate(50%) blur(0.9px);
+    }
+    100% {
+      filter:  saturate(200%);
+    }
   }

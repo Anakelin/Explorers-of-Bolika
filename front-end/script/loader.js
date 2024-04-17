@@ -1,11 +1,14 @@
 document.onreadystatechange = function () {
-    var state = document.readyState
+    var state = document.readyState;
+    const contentId = 'content';
+    const loaderId = 'loader-back';
+
     if (state == 'interactive') {
-        document.getElementById('content').style.display="none";
+        document.getElementById(contentId).style.display="none";
     } else if (state == 'complete') {
         setTimeout(function(){
-            document.getElementById('loader-back').style.display="none";
-            document.getElementById('content').style.display="block";
+            document.getElementById(loaderId).style.display="none";
+            document.getElementById(contentId).style.display="block";
         },500);
     }
 }

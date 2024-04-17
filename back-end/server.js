@@ -3,7 +3,6 @@
 //BACK-END
 
 const sqlite3 = require('sqlite3').verbose();
-var isOn = false;
 const databaseLocation = './data/test.db';
 
 let mydb = new sqlite3.Database(databaseLocation,(err) => {
@@ -20,7 +19,6 @@ let db = new sqlite3.Database(databaseLocation, sqlite3.OPEN_READWRITE, (err) =>
     console.error(err.message);
   } else{
     console.log('Connected to the database.');
-    isOn = true;
   }
 });
 
