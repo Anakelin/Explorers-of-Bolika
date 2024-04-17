@@ -1,0 +1,31 @@
+.content-back {
+    background-repeat: no-repeat;
+    background-size:100vw;
+    background-image: url("../../resources/game_page/back/forest_hall.png");
+    animation: back-lighting 6s infinite alternate-reverse ease-in-out;
+    z-index: -3;
+}
+  
+.content-back-back {
+background-color: var(--blackblackgrey);
+z-index: -4;
+}
+
+
+@-webkit-keyframes back-lighting {
+    0% {
+
+    }
+    100% {
+      filter: blur(0.125vw);
+    }
+  }
+
+  @keyframes back-lighting {
+    0% {
+      filter: saturate(50%) blur(0.9px);
+    }
+    100% {
+      filter:  saturate(200%);
+    }
+  }

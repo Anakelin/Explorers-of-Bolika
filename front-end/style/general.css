@@ -152,21 +152,3 @@ html,body{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-
-  @-webkit-keyframes breathe {
-    0% {
-
-    }
-    100% {
-      filter: blur(0.125vw);
-    }
-  }
-
-  @keyframes breathe {
-    0% {
-      filter: saturate(50%) blur(0.9px);
-    }
-    100% {
-      filter:  saturate(200%);
-    }
-  }
