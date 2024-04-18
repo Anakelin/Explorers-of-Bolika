@@ -8,9 +8,10 @@
   --blood-red-highlight: #c31010;
   --whitewhitegrey: #e0dede;
   --whitegrey: #9b9b9b;
-  --radius: 5px;
+  --radius: 1vw;
   --font-height:5vh;
   --font-height-normal: 4vh;
+  --font-height-alert: 3vh;
   --swift-animation:350ms;
 }
 
@@ -32,4 +33,21 @@ label {
 .btn {
   cursor: pointer;
   transition:  350ms ease-in-out;
+}
+
+.pop-up-alert{
+  position: absolute;
+  display: none;
+  height: fit-content;
+  width: 20%;
+  left: 39%;
+  top: 49%;
+  background-color:var(--blackgrey);
+  border: 1vw solid transparent;
+  border-radius: var(--radius);
+  z-index: -3;
+  font-size: var(--font-height-alert);
+  word-wrap: break-word;
+  animation: load-in-rightl 350ms ease-out forwards, unload-in-topb 350ms 550ms forwards;
+  text-align: center;
 }

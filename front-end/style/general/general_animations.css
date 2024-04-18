@@ -63,3 +63,17 @@
         transform: translateY(5%);
     }
 }
+
+@-webkit-keyframes unload-in-topb {
+    100% { 
+        opacity: 0;
+        transform: translateY(5%);
+    }
+}
+
+@keyframes unload-in-topb {
+    100% { 
+        opacity: 0;
+        transform: translateY(5%);
+    }
+}

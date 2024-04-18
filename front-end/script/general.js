@@ -8,6 +8,7 @@ const wallClass = "wall";
 const hallClass = "hall";
 const bonfireClass = "bonfire";
 const treasureClass = "treasure";
+const alertPopup = "pop-up-alert";
 
 function getDiv(id) {
     return document.getElementById(id);
@@ -32,4 +33,19 @@ function getClass(className) {
     } else {
         return undefined;
     }
+}
+
+function alertMessage(msg) {
+    const elements = getClass(alertPopup);
+    elements.forEach(element =>{
+        element.innerHTML= msg;
+        element.style.zIndex= 3;
+        element.style.display="block";
+    });    
+    setTimeout(function(){
+        elements.forEach(element =>{
+            element.style.zIndex= -3;
+            element.style.display="none";
+        });    
+    },700);
 }

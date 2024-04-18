@@ -113,21 +113,23 @@ io.on('connection', (socket) => {
     }
   });
 
-  socket.on('requestReport', () => {
-    db.all(`SELECT id, hero, state FROM Request WHERE userId = 0`, function(err, query) {  
+  socket.on('requestReport', (userId) => {
+    let query = `SELECT id, hero, state FROM Request WHERE userId = ${userId}`;
+    db.all(query, function(err, query) {  
       socket.emit('receiveReport', query);
     });
   })
 
   socket.on('deleteSolved', (userId) => {
-    db.all(`DELETE FROM Request WHERE userId = ${userId} AND state = "Solved"`, function(err, query) {  
+    let query = `DELETE FROM Request WHERE userId = ${userId} AND state = "Solved"`;
+    db.all(query, function(err, query) {  
       socket.emit('deleteSolvedResponse');
     });
     
   })
 
   socket.on('checkUser', (data) => {
-    let query = `SELECT TRUE FROM Users WHERE name = "${data[0]}" AND password = ${data[1]};`; 
+    let query = `SELECT TRUE FROM Users WHERE name = "${data[0]}" AND password = ${data[1]};`;
     db.all(query, function(err, res) {  
       if(res) {
         socket.emit('userLogin-success');
