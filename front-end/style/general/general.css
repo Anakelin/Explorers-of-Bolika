@@ -48,6 +48,6 @@ label {
   z-index: -3;
   font-size: var(--font-height-alert);
   word-wrap: break-word;
-  animation: load-in-rightl 350ms ease-out forwards, unload-in-topb 350ms 550ms forwards;
+  animation: load-in-rightl 350ms ease-out forwards, unload-in-topb 350ms 350ms forwards;
   text-align: center;
 }
