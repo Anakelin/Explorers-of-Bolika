@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EOB - Sign in</title>
+  <title>Explorers Of Bolika - Sign in</title>
   <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
   <link rel="stylesheet" href="./style/general/general.css">
   <link rel="stylesheet" href="./style/general/general_animations.css">
@@ -31,13 +31,16 @@
     <div class="main-box-back"></div>
   </div>
   <div class="btn-box">
-    <div id="btn-log-in" class="btn" onclick="">Log In</div>
+    <div id="btn-log-in" class="btn" onclick="pageChange('./log_in.html')">Log In</div>
     <div id="btn-sign-in" class="btn">Sign In</div>
   </div>
   <div class="content-back"></div>
   <div class="content-back-back"></div>
 </div>
   <script src="./script/loader.js"></script>
+  <script src="./script/general.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./script/socket/playerCount.js"></script>
   <script src="./script/login_page/login.js"></script>
 </body>
 </html>

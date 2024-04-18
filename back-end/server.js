@@ -25,14 +25,18 @@ let db = new sqlite3.Database(databaseLocation, sqlite3.OPEN_READWRITE, (err) =>
 //test write
 
 db.serialize(() => {
-  db.run(`CREATE TABLE IF NOT EXISTS Request (id INT UNIQUE, userId INT, hero INT, purchaseDate TEXT, state TEXT)`);
+  db.run(`CREATE TABLE IF NOT EXISTS Request (Id INTEGER PRIMARY KEY AUTOINCREMENT, userId INTEGER, hero INTEGER, purchaseDate TEXT, state TEXT)`);
 
-  const stmt = db.prepare(`INSERT OR IGNORE INTO Request VALUES (?, ?, ?, ?, ?)`);
+  const stmt = db.prepare(`
+    INSERT OR IGNORE INTO Request (userId, hero, purchaseDate, state)
+    VALUES ( ?, ?, ?, ?);`
+  );
+
   for (let i = 0; i < 6; i++) {
       const date = new Date().toISOString().split('T')[0];
       let userId = i < 3 ? 0 : 1;
       let state = i %3 == 0 ? "Pending" : i % 2 == 0 ? "Solved" : "Denied" ;
-      stmt.run(i,userId,0,date,state);
+      stmt.run(userId,0,date,state);
   }
   stmt.finalize();
 });
@@ -64,7 +68,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const port = 2020;
-const page = '/'+'index.html';
+const page = '/'+'sign_in.html';
 const directory ='./../front-end';
 const landingPage = page;
 //const landingPage = './../front-end/log_in.html';
@@ -120,6 +124,17 @@ io.on('connection', (socket) => {
       socket.emit('deleteSolvedResponse');
     });
     
+  })
+
+  socket.on('checkUser', (data) => {
+    let query = `SELECT TRUE FROM Users WHERE name = "${data[0]}" AND password = ${data[1]};`; 
+    db.all(query, function(err, res) {  
+      if(res) {
+        socket.emit('userLogin-success');
+      } else {
+        socket.emit('userLogin-failed');
+      }
+    });
   })
 });
 

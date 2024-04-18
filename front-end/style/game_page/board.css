@@ -10,6 +10,11 @@
     --wall: #0c0c0c;
 }
 
+.content {
+    margin-top: 8vw;
+    margin-left: 4vh;
+}
+
 #board-box {
     height: 30vw;
     width: 30vw;

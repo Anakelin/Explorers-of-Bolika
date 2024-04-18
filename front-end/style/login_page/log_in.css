@@ -1,3 +1,7 @@
+.form-text {
+  margin-top: 20%;
+}
+
 .content-back {
     background-repeat: no-repeat;
     background-size:100vw;
@@ -18,7 +22,6 @@ z-index: -4;
   background-color: var(--blackgrey);
   z-index: 2;
   margin-bottom: 1vw;
-  
 }
 
 .btn:nth-of-type(1) {

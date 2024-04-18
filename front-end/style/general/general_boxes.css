@@ -43,7 +43,7 @@
     border: 1vh solid var(--blackgrey);
     min-width: 20%;
     z-index: 1;
-    animation: load-in var(--swift-animation) forwards;
+    animation: load-in-leftr var(--swift-animation) forwards;
 }
 
 .form-label {
@@ -63,7 +63,6 @@
     position: relative;
     display: block;
     margin: auto;
-    margin-top: 20%;
     text-align: center;
     color: var(--whitegrey);
     font-size: 1.5vw;
@@ -99,6 +98,6 @@
     width: auto;
     height: auto;
     background-color: var(--blacken);
-    animation: load-in var(--swift-animation) forwards;
+    animation: load-in-topb var(--swift-animation) forwards;
     border: 1vh solid var(--blackgrey);
 }
