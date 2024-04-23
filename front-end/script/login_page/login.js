@@ -24,7 +24,7 @@ function tryLogin() {
 }
 
 socket.on('userLogin-success', function () {
-    pageChange('./game_page.html');
+    pageChange('./user_page.html');
 })
 
 socket.on('userLogin-failed', function () {
