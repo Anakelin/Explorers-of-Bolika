@@ -15,13 +15,16 @@
   --swift-animation:350ms;
 }
 
+@font-face { font-family: Medieval; src: url('../../resources/fonts/DwarvenAxe\ BB\ W00\ Regular.ttf'); } 
+      
+
 html,body{
   overflow: hidden;
   height: 100%;
   width: 100%;
   margin: 0;
   color: var(--whitewhitegrey);
-  font-family: monospace;
+  font-family: Medieval;
 }
 
 label {
@@ -48,6 +51,11 @@ label {
   z-index: -3;
   font-size: var(--font-height-alert);
   word-wrap: break-word;
-  animation: load-in-rightl 350ms ease-out forwards, unload-in-topb 350ms 350ms forwards;
+  animation: load-in-rightl 750ms ease-out forwards, unload-in-topb 350ms 750ms forwards;
   text-align: center;
 }
+
+.content-back-back {
+  background-color: var(--blackblackgrey);
+  z-index: -4;
+  }

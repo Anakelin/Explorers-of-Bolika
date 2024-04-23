@@ -1,4 +1,3 @@
-
 .content, .content-back, .content-back-back{
     height: inherit;
     width: inherit;
@@ -70,6 +69,7 @@
     border-bottom: 0.5vh solid var(--whitegrey);
     outline: none;
     transition: 250ms ease-out;
+    font-family: Medieval;
 }
 
 .form-text:focus {
@@ -85,7 +85,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    aspect-ratio: 4/3;
+    height: 100%;
     background-repeat: no-repeat;
     background-color: var(--blacken);
     z-index: -2;

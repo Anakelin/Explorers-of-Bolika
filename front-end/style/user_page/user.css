@@ -1,0 +1,144 @@
+.content-back {
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image: url("../../resources/game_page/back/grave_main.png");
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+    z-index: -3;
+}
+
+.main-box{
+    height: 80%;
+    width: 90%;
+    border: 1vh solid var(--blackgrey);
+    min-width: 20%;
+    z-index: 0;
+    animation: load-in-leftr var(--swift-animation) forwards;
+}
+
+.main-box .sub-box.side:nth-of-type(2){
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 20%;
+    z-index: 1;
+    border-right: 1vh solid var(--blackgrey);
+}
+
+.main-box .sub-box.center:nth-of-type(3){
+    position: absolute;
+    top: 0;
+    left: 20%;
+    height:100%;
+    width: 60%;
+    z-index: 1;
+}
+
+.main-box .sub-box.side:nth-of-type(4){
+    position: absolute;
+    top: 0;
+    right: 0;
+    height:100%;
+    width: 20%;
+    z-index: 1;
+}
+
+.sub-box.inner{
+    position: absolute;
+    border: 1vh solid var(--blackgrey);
+    z-index: 2;
+}
+
+.sub-box.side:nth-of-type(2) .sub-box.inner{
+    left: 8%;
+    height:40%;
+    width: 80%;
+}
+
+.sub-box.side:nth-of-type(2) .sub-box.inner:nth-of-type(1) {
+    top: 5%;
+}
+
+.sub-box.side:nth-of-type(2) .sub-box.inner:nth-of-type(2) {
+    top: 55%;
+}
+
+.sub-box.center .sub-box.inner{
+    top: 5%;
+    left: 4%;
+    width: 90%;
+    height: 90%;
+}
+
+.sub-box.center .sub-box.inner .title-box-sub{
+    margin-left: 5%;
+    margin-right: 70%;
+}
+
+.sub-box.side:nth-of-type(4) .sub-box.inner{
+    right: 8%;
+    height:25%;
+    width: 80%;
+}
+
+.sub-box.side:nth-of-type(4) .sub-box.inner:nth-of-type(1) {
+    top: 5%;
+}
+
+.sub-box.side:nth-of-type(4) .sub-box.inner:nth-of-type(2) {
+    top: 37.5%;
+}
+
+.sub-box.side:nth-of-type(4) .sub-box.inner:nth-of-type(3) {
+    top: 70%;
+}
+
+
+.title-box{
+    margin-left: 40%;
+    margin-right: 40%;
+    z-index: 3;
+}
+
+.title-box-sub {
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    top: -1.8vw;
+    width: auto;
+    height: fit-content;
+    box-shadow: 
+        inset -1vh 0 0 var(--blackgrey),
+        inset 0 -1vh 0 var(--blackgrey),
+        inset 1vh 0 0 var(--blackgrey),
+        inset 0 1vh 0 var(--blackgrey);
+    background-color: var(--blackblackgrey);
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    z-index: 2;
+    min-width: 115px;
+}
+
+.title-box-text {
+    display: block;
+    text-align: center;
+    font-size: 2vw;
+}
+
+@-webkit-keyframes back-lighting {
+    0% {
+        filter:  saturate(150%) blur(0.5px);  
+    }
+    100% {
+      filter:  saturate(200%) blur(0.9px);
+    }
+  }
+  
+@keyframes back-lighting {
+    0% {
+        filter:  saturate(150%) blur(0.5px);  
+    }
+    100% {
+        filter:  saturate(200%) blur(0.6px);
+    }
+}

@@ -10,10 +10,7 @@
     z-index: -3;
 }
   
-.content-back-back {
-background-color: var(--blackblackgrey);
-z-index: -4;
-}
+
 
 .btn {
   display: block;

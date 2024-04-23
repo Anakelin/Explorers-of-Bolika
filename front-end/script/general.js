@@ -47,5 +47,5 @@ function alertMessage(msg) {
             element.style.zIndex= -3;
             element.style.display="none";
         });    
-    },700);
+    },1000);
 }
