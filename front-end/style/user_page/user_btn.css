@@ -1,0 +1,114 @@
+.back {
+    width: 0;
+    height: 0;
+    border-top: 2vh solid transparent;
+    border-right: 4vh solid var(--blackgrey);
+    border-bottom: 2vh solid transparent;
+}
+
+.forw {
+    width: 0;
+    height: 0;
+    border-top: 2vh solid transparent;
+    border-left: 4vh solid var(--blackgrey);
+    border-bottom: 2vh solid transparent;
+}
+
+.container{
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.container > div {
+    display: inline-block;
+    font-size: 1.5vw;
+    margin-left: 5%;
+}
+
+.dif-info.container > div {
+    display: inline-block;
+    font-size: 1.5vw;
+    margin-left: 9%;
+}
+
+.btn-start {
+    margin-top: 15%;
+    margin-left: 18%;
+    height: 30%;
+    width: 50%;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: 
+        inset -1vh 0 0 var(--blackgrey),
+        inset 0 -1vh 0 var(--blackgrey),
+        inset 1vh 0 0 var(--blackgrey),
+        inset 0 1vh 0 var(--blackgrey);
+    background-color: var(--blackblackgrey);
+    text-align: center;
+    font-size: 2vw;
+}
+
+.ruin {
+    background-image: url("../../resources/game_page/back/ruin_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+}
+
+.grave {
+    background-image: url("../../resources/game_page/back/grave_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+}
+
+.woods {
+    background-image: url("../../resources/game_page/back/forest_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+}
+
+.swamp {
+    background-image: url("../../resources/game_page/back/swamp_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 650ms infinite alternate-reverse ease-in-out;
+}
+
+.pyro {
+    background-image: url("../../resources/game_page/back/pyro_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+}
+
+#loc-name, #dif-name, .btn{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;   
+}
+
+#loc-name{
+    min-width: 48%;
+}
+
+#dif-name {
+    min-width: 30%;
+}
+
+
+@-webkit-keyframes back-lighting {
+    0% {
+        filter:  saturate(150%) blur(0.5px);  
+    }
+    100% {
+      filter:  saturate(200%) blur(0.9px);
+    }
+  }
+  
+@keyframes back-lighting {
+    0% {
+        filter:  saturate(150%) blur(0.5px);  
+    }
+    100% {
+        filter:  saturate(200%) blur(0.6px);
+    }
+}

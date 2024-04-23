@@ -1,0 +1,48 @@
+.user-info {
+    display: block;
+    font-size: 2vw;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.user-info.data {
+    font-size: 1.2vw;
+}
+
+.game-info {
+    display: block;
+    font-size: 2vw;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.game-info > label {
+    display: inline-block;
+}
+
+.game-info.data {
+    font-size: 1.2vw;
+}
+
+.game-info.icon {
+    height: 1vw;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position:bottom;
+}
+
+#game-info-currency + .game-info.icon {
+    background-image: url("../../resources/game_page/pageres/loot.curio_tracker.png");
+}
+
+#game-info-win + .game-info.icon {
+    margin-top: 0.5vw;
+    height: 1.5vw;
+    background-image: url("../../resources/game_page/pageres/win_icon.png");
+} 
+
+#game-info-loss + .game-info.icon {
+    margin-top: 0.5vw;
+    height: 1.5vw;
+    background-image: url("../../resources/game_page/pageres/loss_icon.png");
+}

@@ -1,8 +1,6 @@
 .content-back {
     background-repeat: no-repeat;
     background-size:cover;
-    background-image: url("../../resources/game_page/back/grave_main.png");
-    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
     z-index: -3;
 }
 
@@ -91,6 +89,7 @@
 
 .sub-box.side:nth-of-type(4) .sub-box.inner:nth-of-type(3) {
     top: 70%;
+    border: none;
 }
 
 
@@ -123,22 +122,4 @@
     display: block;
     text-align: center;
     font-size: 2vw;
-}
-
-@-webkit-keyframes back-lighting {
-    0% {
-        filter:  saturate(150%) blur(0.5px);  
-    }
-    100% {
-      filter:  saturate(200%) blur(0.9px);
-    }
-  }
-  
-@keyframes back-lighting {
-    0% {
-        filter:  saturate(150%) blur(0.5px);  
-    }
-    100% {
-        filter:  saturate(200%) blur(0.6px);
-    }
 }
