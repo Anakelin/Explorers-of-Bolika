@@ -1,8 +1,8 @@
-let backgrounds = ["grave","ruin","woods","swamp","pyro"];
+let backgrounds = ["Grave","Ruins","Woods","Swamp","Fire"];
 const backId = "background";
 const locId = "loc-name";
 function startGame() {
-    sendPage("./game_page.html");
+    pageChange("./game_page.html");
 }
 
 function locForw() {    
@@ -32,7 +32,7 @@ function locBack() {
     });
     let index = backgrounds.indexOf(oldBack)-1;
     
-    let newBack = index > 0 ? index : backgrounds.length-1;
+    let newBack = index > -1 ? index : backgrounds.length-1;
     console.log(newBack);
     getDiv(backId).classList.remove(`${oldBack}`);
     getDiv(backId).classList.add(`${backgrounds[newBack]}`);       

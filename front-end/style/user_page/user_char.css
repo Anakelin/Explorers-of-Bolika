@@ -1,0 +1,131 @@
+/*Left button box*/
+.sub-sub-box.side:nth-of-type(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 10%;
+}
+
+/*Char data*/
+.sub-sub-box.center{
+    position: absolute;
+    top: 0;
+    left: 10%;
+    height: 100%;
+    width: 80%;
+}
+
+/*Right button box*/
+.sub-sub-box.center + .sub-sub-box.side {
+    position: absolute;
+    top: 0;
+    left: 90%;
+    height: 100%;
+    width: 10%;
+}
+
+.char-data.img {
+    position: absolute;
+    left: 5%;
+    width: 25%;
+    height: 35%;
+    background-image: url("../../resources/game_page/char/default/base.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-left: 1vh solid var(--blackgrey);
+    border-right: 1vh solid var(--blackgrey);
+    border-bottom: 1vh solid var(--blackgrey);
+}
+
+.char-data.name {
+    position: absolute;
+    left: 36%;
+    width: 50%;
+    display: block;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+    font-size: 3vw;
+    border-left: 1vh solid var(--blackgrey);
+    border-right: 1vh solid var(--blackgrey);
+    border-bottom: 1vh solid var(--blackgrey);
+}
+
+.char-data.stats, .char-data.desc {
+    position: absolute;
+    top: 15%;
+    width: 24%;
+    aspect-ratio: 1;
+    border: 1vh solid var(--blackgrey);
+    font-size: 2vh;
+}
+
+.char-data.stats{
+    left: 37%;
+    padding: 1%;
+}
+
+.char-data.desc {
+    left: 69%;
+    padding: 1%;
+}
+
+.char-data.skills {
+    position: absolute;
+    left: 5%;
+    top: 55%;
+    height: 40%;
+    width: 90%;
+    border: 1vh solid var(--blackgrey);
+}
+
+.char-data.skill {
+    display: block;
+    width: 100%;
+    height: 22.8%;
+    border-bottom: 1vh solid var(--blackgrey);
+}
+
+.char-data.skill:nth-last-child(1) {
+    border: none;
+}
+
+.char-data.skill-img {
+    position: absolute;
+    height: 22.8%;
+    aspect-ratio: 1;
+    background-position: center;
+    background-size: cover;
+    border-right: 1vh solid var(--blackgrey);
+    display: inline-block;
+}
+
+.char-data.char-data.skill-desc {
+    position: relative;
+    top: 16%;
+    left: 8vh;
+    height: 8.8%;
+    display: block;
+    text-align: justify;
+    font-size: 1.5vw;
+}
+
+/*temp*/
+
+#skill-img0 {
+    background-image: url("../../resources/game_page/char/default/skills/icon_smite.png");
+}
+
+#skill-img1 {
+    background-image: url("../../resources/game_page/char/default/skills/icon_rally_cry.png");
+}
+
+#skill-img2 {
+    background-image: url("../../resources/game_page/char/default/skills/icon_holy_lance.png");
+}
+
+#skill-img3 {
+    background-image: url("../../resources/game_page/char/default/skills/icon_heal_words.png");
+}

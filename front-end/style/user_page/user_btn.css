@@ -1,19 +1,3 @@
-.back {
-    width: 0;
-    height: 0;
-    border-top: 2vh solid transparent;
-    border-right: 4vh solid var(--blackgrey);
-    border-bottom: 2vh solid transparent;
-}
-
-.forw {
-    width: 0;
-    height: 0;
-    border-top: 2vh solid transparent;
-    border-left: 4vh solid var(--blackgrey);
-    border-bottom: 2vh solid transparent;
-}
-
 .container{
     display: block;
     margin-left: 10%;
@@ -23,13 +7,51 @@
 .container > div {
     display: inline-block;
     font-size: 1.5vw;
-    margin-left: 5%;
+    margin-left: 7%;
 }
 
 .dif-info.container > div {
     display: inline-block;
     font-size: 1.5vw;
     margin-left: 9%;
+}
+
+.back {
+    width: 0;
+    height: 0;
+    border-top: 1vh solid transparent;
+    border-right: 2vh solid var(--blackgrey);
+    border-bottom: 1vh solid transparent;
+}
+
+.forw {
+    width: 0;
+    height: 0;
+    border-top: 1vh solid transparent;
+    border-left: 2vh solid var(--blackgrey);
+    border-bottom: 1vh solid transparent;
+}
+
+.sub-sub-box.side .back ,.sub-sub-box.side .forw {
+    position: relative;
+    top: 50%;
+    left: 10%;
+}
+
+.sub-sub-box.side .back {
+    width: 0;
+    height: 0;
+    border-top: 3vh solid transparent;
+    border-right: 6vh solid var(--blackgrey);
+    border-bottom: 3vh solid transparent;
+}
+
+.sub-sub-box.side .forw {
+    width: 0;
+    height: 0;
+    border-top: 3vh solid transparent;
+    border-left: 6vh solid var(--blackgrey);
+    border-bottom: 3vh solid transparent;
 }
 
 .btn-start {
@@ -50,44 +72,74 @@
     font-size: 2vw;
 }
 
-.ruin {
+.btn-start:hover {
+    background-color: var(--blood-red);
+    color: var(--blackblackgrey);
+}
+
+.forw:hover {
+    border-top: 1vh solid transparent;
+    border-left: 2vh solid var(--whitewhitegrey);
+    border-bottom: 1vh solid transparent;
+}
+
+.back:hover {
+    border-top: 1vh solid transparent;
+    border-right: 2vh solid var(--whitewhitegrey);
+    border-bottom: 1vh solid transparent;
+}
+
+.sub-sub-box.side .forw:hover {
+    border-top: 3vh solid transparent;
+    border-left: 6vh solid var(--whitewhitegrey);
+    border-bottom: 3vh solid transparent;
+}
+
+.sub-sub-box.side .back:hover {
+    border-top: 3vh solid transparent;
+    border-right: 6vh solid var(--whitewhitegrey);
+    border-bottom: 3vh solid transparent;
+}
+
+.Ruins {
     background-image: url("../../resources/game_page/back/ruin_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
 }
 
-.grave {
+.Grave {
     background-image: url("../../resources/game_page/back/grave_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
 }
 
-.woods {
+.Woods {
     background-image: url("../../resources/game_page/back/forest_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
 }
 
-.swamp {
+.Swamp {
     background-image: url("../../resources/game_page/back/swamp_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 650ms infinite alternate-reverse ease-in-out;
 }
 
-.pyro {
+.Fire {
     background-image: url("../../resources/game_page/back/pyro_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
 }
 
 #loc-name, #dif-name, .btn{
+    text-align: center;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;   
 }
 
 #loc-name{
-    min-width: 48%;
+    width: 48%;
 }
 
 #dif-name {

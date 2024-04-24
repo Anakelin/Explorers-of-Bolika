@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./style/user_page/user_page.css">
   <link rel="stylesheet" href="./style/user_page/user-info.css">
   <link rel="stylesheet" href="./style/user_page/user_btn.css">
+  <link rel="stylesheet" href="./style/user_page/user_char.css">
 </head>
 <body>
   <div id="loader-back">
@@ -60,6 +61,44 @@
         <div class="title-box-sub">
           <label class="title-box-text">Character</label>
         </div>
+        <div class="sub-sub-box side">
+          <div class="btn-char back btn" onclick="charBack()"></div>
+        </div>
+        <div class="sub-sub-box center">
+          <div class="char-data img"></div>
+          <div class="char-data name"> The Knight</div>
+          <div class="char-data stats"></div>
+          <div class="char-data desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum a arcu cursus vitae congue</div>
+          <div class="char-data skills">
+            <div class="char-data skill">
+              <div id="skill-img0" class="char-data skill-img"></div>
+              <div id="skill-desc0" class="char-data skill-desc">
+                20 HP 10 EN The user smites the enemy.
+              </div>
+            </div>
+            <div class="char-data skill">
+              <div id="skill-img1" class="char-data skill-img"></div>
+              <div id="skill-desc1" class="char-data skill-desc">
+                5 HP 15 EN The user restores hp and en.
+              </div>
+            </div>
+            <div class="char-data skill">
+              <div id="skill-img2" class="char-data skill-img"></div>
+              <div id="skill-desc2" class="char-data skill-desc">
+                40 HP 30 EN The user charges wildly at the enemy.
+              </div>
+            </div>
+            <div class="char-data skill">
+              <div id="skill-img3" class="char-data skill-img"></div>
+              <div id="skill-desc3" class="char-data skill-desc">
+                0 HP 30 EN The user heals themselves.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sub-sub-box side">
+          <div class="btn-char forw btn" onclick="charForw()"></div>
+        </div>
       </div>
     </div>
     <div class="sub-box side">
@@ -91,7 +130,7 @@
     <div class="main-box-back"></div>
   </div>
 
-  <div id="background"  class="content-back  grave"></div>
+  <div id="background"  class="content-back  Grave"></div>
   <div class="content-back-back"></div>
 </div>
   <script src="./script/loader.js"></script>
