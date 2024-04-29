@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EOB - User Page</title>
-  <link rel="stylesheet" href="./style/game_page/game_main.css">
+  <title>EOB - Exploration</title>
+  <!--
+    <link rel="stylesheet" href="./style/game_page/game_main.css">
     <link rel="stylesheet" href="./style/game_page/combat.css">
     <link rel="stylesheet" href="./style/game_page/char.css">
     <link rel="stylesheet" href="./style/game_page/board.css">
     <link rel="stylesheet" href="./style/general/general.css">
+  -->
+    <link rel="stylesheet" href="./style/general/general.css">
+    <link rel="stylesheet" href="./style/general/general_animations.css">
+    <link rel="stylesheet" href="./style/general/general_boxes.css">
+    <link rel="stylesheet" href="./style/game_page/game_page.css">
+    <link rel="stylesheet" href="./style/game_page/game_map.css">
+    <link rel="stylesheet" href="./style/game_page/game_char.css">
     <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
@@ -19,17 +27,17 @@
 <div id="content" class="content">
   <div class="main-box">
     <div class="title-box">
-      <label class="title-box-text">Game Page</label>
+      <label class="title-box-text">Exploration</label>
     </div>
     <!--box for the exploration part of the game-->
-    <div class="explore-box">
+    <div id="explore-box" class="explore-box">
       <div id="map" class="map"></div>
       <div class="battle-dialogue-box"></div>
     </div>
     <!--box for when the battle begins-->
-    <div class="battle-box">
+    <div id="battle-box" class="battle-box">
       <!--box for battlefield-->
-      <div class="battlefield-box">
+      <div id="battlefield-box" class="battlefield-box">
         <div id="user-ui" class="char-ui">
           <div id="user-bar" class="bar-ui">
             <div id="user-hp" class="hp">
@@ -39,40 +47,37 @@
               <div id="user-en-bar" class="en-bar"></div>
             </div>
           </div>
-          <div class="char">
-            <div id="user-char"></div>
-          </div>
+          <div id="user-char" class="char"></div>
         </div>
         
-        <div id="enemy-ui" class="char-ui">
-          <div id="enemy-bar" class="bar-ui">
-            <div id="enemy-hp" class="hp">
-              <div id="enemy-hp-bar" class="hp-bar"></div>
+        <div id="monster-ui" class="char-ui">
+          <div id="monster-bar" class="bar-ui">
+            <div id="monster-hp" class="hp">
+              <div id="monster-hp-bar" class="hp-bar"></div>
             </div>
-            <div id="enemy-en" class="en">
-              <div id="enemy-en-bar" class="en-bar"></div>
+            <div id="monster-en" class="en">
+              <div id="monster-en-bar" class="en-bar"></div>
             </div>
           </div>
-          <div class="char">
-            <div id="enemy-char"></div>
-          </div>
+          <div id="monster-char" class="char"></div>
         </div>
       </div>
       <!--box for the skills that can be used in battle-->
       <div class="skill-box">
-          <div id="btn-view">
-            <div id="sk0" class="btn skill"></div>
-            <div id="sk1" class="btn skill"></div>
-            <div id="sk2" class="btn skill"></div>
-            <div id="sk3" class="btn skill"></div>
+          <div class="btn-view">
+            <div id="sk0" class="btn skill" onclick="playSkill(this.id,true)"></div>
+            <div id="sk1" class="btn skill" onclick="playSkill(this.id,true)"></div>
+            <div id="sk2" class="btn skill" onclick="playSkill(this.id,true)"></div>
+            <div id="sk3" class="btn skill" onclick="playSkill(this.id,true)"></div>
           </div>
-          <div id="forecast-view">
-            <div id="skill-desc"></div>
+          <div class="skill-desc-box">
+            <div class="skill-desc-value"></div>
         </div>
       </div>
 
     </div>
     <div class="main-box-back"></div>
+    <div class="main-box-forw"></div>
   </div>
   <div class="content-back"></div>
   <div class="content-back-back"></div>
@@ -87,12 +92,16 @@
     <script src="./script/game_page/play_skill.js" ></script>
     <script src="./script/game_page/bar_animation.js" ></script>
     <script src="./script/game_page/randomBattle.js" ></script>
+    <script src="./script/game_page_old/dynamic_background.js"></script>
+  
   -->
-  <script src="./script/game_page/dynamic_background.js"></script>
-  <script src="./script/game_page/map_components.js" ></script>
-  <script src="./script/game_page/map_generation.js" ></script>
-  <script src="./script/game_page/move_generation.js" ></script>
-  <script src="./script/game_page/game_script.js" ></script>
+  <script src="./script/game_page/dynamic_back.js"></script>
+  <script src="./script/game_page/battle_fun.js"></script>
+  <script src="./script/game_page/map_comp.js"></script>
+  <script src="./script/game_page/map_gen.js"></script>
+  <script src="./script/game_page/move_gen.js"></script>
+  <script src="./script/game_page/play_skill.js"></script>
+  <script src="./script/game_page/start_game.js"></script>
 </body>
 </html>
 

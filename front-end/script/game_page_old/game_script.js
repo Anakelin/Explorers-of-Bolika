@@ -20,7 +20,7 @@ function startGame() {
         enemyLocation+"2.png",
         enemyLocation+"3.png"
     );
-    resetChar();
+    //resetChar();
 }
 var userSprites = [];
 var enemySprites = [];

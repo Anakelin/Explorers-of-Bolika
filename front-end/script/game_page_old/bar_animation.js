@@ -66,7 +66,7 @@ function changeEnemyHp(value) {
         enemyHp.style.width = currentWidth +"px";
     }
     if(currentEnemyHp <= 0) {
-        endBattleFlip();
+        endBattle();
         resetEnemy();
     }
     

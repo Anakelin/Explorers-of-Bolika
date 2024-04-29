@@ -1,0 +1,153 @@
+
+.main-box {
+    height: 90%;
+    width: 90%;
+    top: 5%;
+}
+
+.explore-box, .battle-box{
+    position: absolute;
+    height: 100%;
+}
+
+.explore-box {
+    width: 45%;
+    left: 0;
+    top: 0;
+    
+}
+
+.battle-box {
+    width: 55%;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.map {
+    position: absolute;
+    width: 55vh;
+    aspect-ratio: 1;
+    left: 15vh;
+    top: 10vw;
+    display: grid;
+    
+}
+
+.battlefield-box,.skill-box {
+    position: absolute;
+    width: 100%;
+}
+
+.battlefield-box {
+    height: 60%;
+    width: 90%;
+    top: 15%;
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+.skill-box {
+    left:0;
+    bottom: 0;
+    height: 40%;
+}
+
+.btn-view {
+    position: absolute;
+    height: 60%;
+    width: 20vh;
+    left:20%;
+    top: 35%;
+}
+
+.btn.skill {
+    position: absolute;
+    height: 4vw;
+    aspect-ratio: 1;
+    background-position: center;
+    background-size: cover;
+}
+
+#sk0,
+#sk2 {
+    left: 0%;
+}
+
+#sk1,
+#sk3 {
+    right: 0%;
+}
+
+#sk2,#sk3 {
+    bottom: 0;
+}
+
+#sk0 {
+    background-image: url("../../resources/game_page/char/default/skills/icon_smite.png");
+}
+
+#sk1 {
+    background-image: url("../../resources/game_page/char/default/skills/icon_holy_lance.png");
+}
+
+#sk2 {
+    background-image: url("../../resources/game_page/char/default/skills/icon_rally_cry.png");
+}
+
+#sk3 {
+    background-image: url("../../resources/game_page/char/default/skills/icon_heal_words.png");
+}
+
+.skill-desc-box {
+    position: absolute;
+    width: 40%;
+    height: 70%;
+    right: 15%;
+    top: 3.5vw;
+    border: 1vh solid var(--blackblackgrey);
+    background-color: var(--blacken);
+}
+
+.skill-box,.map{
+    z-index: 5;
+}
+
+.main-box-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../../resources/game_page/back/game_page_back.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    
+    
+}
+
+.main-box-forw {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../../resources/game_page/back/game_page_forw.png");
+    background-position: center;
+    z-index: 1;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.unload {
+    animation: unload-in-topb 750ms forwards;
+    pointer-events: none;
+}
+
+.load {
+    animation: load-in-bottomt 200ms ease-out forwards;
+    pointer-events: all;
+}
