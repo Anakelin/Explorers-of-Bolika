@@ -25,6 +25,7 @@ html,body{
   margin: 0;
   color: var(--whitewhitegrey);
   font-family: Medieval;
+  cursor: url("../../resources/game_page/pageres/arrow.png"),auto;
 }
 
 label {
@@ -34,7 +35,7 @@ label {
 }
 
 .btn {
-  cursor: pointer;
+  cursor: url("../../resources/game_page/pageres/arrow_highlight.png"), auto;
   transition:  350ms ease-in-out;
 }
 
@@ -59,3 +60,7 @@ label {
   background-color: var(--blackblackgrey);
   z-index: -4;
   }
+
+input {
+  cursor: url("../../resources/game_page/pageres/arrow_text.png"), auto;
+}

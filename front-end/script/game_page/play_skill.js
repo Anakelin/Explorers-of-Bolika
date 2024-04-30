@@ -13,9 +13,14 @@ function playSkill(id, player) {
         //playSmite();    
     }
     if (currentMonsterHp <= 0) {
-        resetMonster();
-        endBattle(true);
+        setTimeout(function () {
+            resetMonster();
+            endBattle(true);    
+        }, 350);
+        
     } else if (currentUserHp <= 0) {
-        endBattle(false);
+        setTimeout(function () {
+            endBattle(false);
+        }, 750);
     }
 }

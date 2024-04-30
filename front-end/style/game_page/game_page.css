@@ -41,9 +41,9 @@
 }
 
 .battlefield-box {
-    height: 60%;
-    width: 90%;
-    top: 15%;
+    height: 40%;
+    width: 91%;
+    top: 13%;
     background-size: 100% 100%;
     z-index: -1;
 }
@@ -51,15 +51,21 @@
 .skill-box {
     left:0;
     bottom: 0;
-    height: 40%;
+    height: 42%;
 }
 
 .btn-view {
     position: absolute;
-    height: 60%;
-    width: 20vh;
-    left:20%;
-    top: 35%;
+    aspect-ratio: 4;
+    width: 37vh;
+    left:5%;
+    top: 5%;
+    border: 1px solid seagreen;
+}
+
+#sk0,#sk1,#sk2,#sk3 {
+    position: relative;
+    display: inline-block;
 }
 
 .btn.skill {
@@ -68,20 +74,6 @@
     aspect-ratio: 1;
     background-position: center;
     background-size: cover;
-}
-
-#sk0,
-#sk2 {
-    left: 0%;
-}
-
-#sk1,
-#sk3 {
-    right: 0%;
-}
-
-#sk2,#sk3 {
-    bottom: 0;
 }
 
 #sk0 {
@@ -102,10 +94,10 @@
 
 .skill-desc-box {
     position: absolute;
-    width: 40%;
-    height: 70%;
-    right: 15%;
-    top: 3.5vw;
+    width: 80%;
+    height: 50%;
+    left: 5%;
+    top: 35%;
     border: 1vh solid var(--blackblackgrey);
     background-color: var(--blacken);
 }
@@ -141,6 +133,27 @@
     background-repeat: no-repeat;
     pointer-events: none;
 }
+.main-curtain-box {
+    position: absolute;
+    right: 10vh;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.main-curtain {
+    height: 100%;
+    width: 100%;
+    background-image: url("../../resources/game_page/back/curtains.png");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    transition: 350ms all;
+}
 
 .unload {
     animation: unload-in-topb 750ms forwards;
@@ -150,4 +163,8 @@
 .load {
     animation: load-in-bottomt 200ms ease-out forwards;
     pointer-events: all;
+}
+
+.active-curtain {
+    transform: translateY(-70%);
 }

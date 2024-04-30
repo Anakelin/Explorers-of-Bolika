@@ -1,6 +1,5 @@
 #map>div:not(.wall) {
     transition: 300ms ease-out;
-    cursor: pointer;
 }
 
 .wall {
@@ -27,9 +26,16 @@
     background-image: url("../../resources/game_page/pageres/treasure_icon.png");
 }
 
-
 .enem {
-    background-image: url(../../resources/game_page/pageres/enemy_icon.png);
+    background-image: url("../../resources/game_page/pageres/enemy_icon.png");
+}
+
+.hall.move-cell {
+    background-image: url("../../resources/game_page/pageres/user_hall_move_icon.png");
+}
+
+.room.move-cell {
+    background-image: url("../../resources/game_page/pageres/user_room_move_icon.png");
 }
 
 .treasure,
@@ -40,17 +46,23 @@
 .spawn {
     background-size: cover;
     background-repeat: no-repeat;
+    opacity: 0.06;
+    transition: 350ms ease-out;
+}
+
+.spawn {
     opacity: 0.5;
-    transition: 300ms ease-out;
+}
+
+.move-cell.spawn {
+    opacity: 1;
 }
 
 .move-cell.treasure,
 .move-cell.bonfire,
-.move-cell.enem,
-.move-cell.hall,
-.move-cell.room,
-.move-cell.spawn {
+.move-cell.enem{
     opacity: 1.0;
+    cursor: url("../../resources/game_page/pageres/arrow_interest.png"), auto;;
 }
 
 .hall.user-cell,
@@ -62,4 +74,11 @@
 .room.user-cell {
     background-image: url("../../resources/game_page/pageres/user_room_icon.png");
     opacity: 1;
+}
+
+
+
+.hall.move-cell,.room.move-cell {
+    opacity: 0.85;
+    cursor: url("../../resources/game_page/pageres/arrow_highlight.png"), auto;
 }

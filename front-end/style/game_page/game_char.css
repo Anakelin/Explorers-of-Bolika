@@ -9,6 +9,7 @@
     height: 70%;
     width: 90%;
     background-color: greenyellow;
+    transition: 350ms ease-out;
 }
 
 .char-ui {
@@ -25,12 +26,11 @@
 */
 
 .char {
-    margin-left: 8%;
-    width: 18.5vh;
-    height: 13.5vw;
+    margin-left: 3%;
+    width: 20vh;
+    aspect-ratio: 0.85;
     background-size: 100% 100%;
     background-image: url("../../resources/game_page/char/default/base.png");
-    
 }
 
 #user-char {
@@ -66,4 +66,5 @@
     height: 25%;
     width: 90%;
     background-color: aquamarine;
+    transition: 350ms ease-out;
 }

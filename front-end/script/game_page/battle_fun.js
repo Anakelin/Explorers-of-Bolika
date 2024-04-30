@@ -30,12 +30,14 @@ function isBattle() {
 function startBattle() {
     getDiv("explore-box").classList.add("unload");
     getDiv("battle-box").classList.add("load");
+    getDiv("curtain").classList.add("active-curtain");
 }
 
 function endBattle(isWin) {
     if (isWin) {
         getDiv("explore-box").classList.remove("unload");
         getDiv("battle-box").classList.remove("load");    
+        getDiv("curtain").classList.remove("active-curtain");
     }
 }
 
