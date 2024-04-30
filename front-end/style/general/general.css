@@ -13,7 +13,6 @@
   --font-height-normal: 4vh;
   --font-height-alert: 3vh;
   --swift-animation:350ms;
-  --box-back: linear-gradient(90deg, rgba(28, 28, 28, 0) 0%, rgba(28, 28, 28, 0) 7%, rgba(28, 28, 28, 1) 13%, rgba(28, 28, 28, 1) 86%, rgba(28, 28, 28, 0) 90%, rgba(28, 28, 28, 0) 100%);
 }
 
 @font-face { font-family: Medieval; src: url('../../resources/fonts/DwarvenAxe\ BB\ W00\ Regular.ttf'); } 
@@ -33,6 +32,7 @@ label {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+  pointer-events: none;
 }
 
 .btn {
