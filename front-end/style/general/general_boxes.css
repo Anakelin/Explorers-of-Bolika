@@ -12,15 +12,11 @@
     position: relative;
     margin-left: 35%;
     margin-right: 35%;
-    top: -1.8vw;
+    top: -2.8vw;
     width: auto;
     height: fit-content;
-    box-shadow: 
-        inset -1vh 0 0 var(--blackgrey),
-        inset 0 -1vh 0 var(--blackgrey),
-        inset 1vh 0 0 var(--blackgrey),
-        inset 0 1vh 0 var(--blackgrey);
-    background-color: var(--blackblackgrey);
+    border: 1vh solid var(--blackgrey);
+    background-color: var(--blacken);
     padding-top: 1vh;
     padding-bottom: 1vh;
     z-index: 2;

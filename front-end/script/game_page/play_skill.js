@@ -1,4 +1,5 @@
-const DEATHTIME = 250;
+const DEATHTIME = 350;
+const RESETTIME = 300;
 function playSkill(id, player) {
     // check id and hero and get hp and en
     var hp = -20;
@@ -15,9 +16,12 @@ function playSkill(id, player) {
     }
     if (currentMonsterHp <= 0) {
         setTimeout(function () {
-            resetMonster();
             endBattle(true);    
-        }, DEATHTIME);
+            setTimeout(function () {
+                resetMonster();
+            }, RESETTIME);
+        }, DEATHTIME)
+        
         
     } else if (currentUserHp <= 0) {
         setTimeout(function () {

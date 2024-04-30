@@ -5,7 +5,7 @@
 .content-back {
     background-repeat: no-repeat;
     background-size:100vw;
-    background-image: url("../../resources/game_page/back/forest_hall.png");
+    background-image: url("../../resources/game_page/back/log_in_back.png");
     animation: back-lighting 1s infinite alternate-reverse ease-in-out;
     z-index: -3;
 }

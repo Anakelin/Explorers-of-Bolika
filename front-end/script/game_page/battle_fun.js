@@ -36,12 +36,8 @@ function startBattle() {
 function endBattle(isWin) {
     if (isWin) {
         getDiv("curtain").classList.remove("active-curtain");
-        setTimeout(function () {
-            getDiv("explore-box").classList.remove("unload");
-            getDiv("battle-box").classList.remove("load");    
-        }, 350);
-        
-        
+        getDiv("explore-box").classList.remove("unload");
+        getDiv("battle-box").classList.remove("load");    
     }
 }
 

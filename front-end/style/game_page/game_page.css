@@ -3,6 +3,8 @@
     height: 90%;
     width: 90%;
     top: 5%;
+    border: 3vh solid transparent;
+    border-image: url("../../resources/game_page/pageres/border.png") 27 round;
 }
 
 .explore-box, .battle-box{
@@ -47,6 +49,8 @@
     background-size: 100% 100%;
     z-index: -1;
     animation: back-lighting 750ms infinite alternate-reverse ease-in-out;
+    border: 1vh solid transparent;
+    border-image: url("../../resources/game_page/pageres/border.png") 27 round;
 }
 
 .skill-box {
@@ -57,10 +61,12 @@
 
 .btn-view {
     position: absolute;
-    aspect-ratio: 4;
-    width: 37vh;
+    height: 4vw;
+    width: 36.7vh;
     left:5%;
     top: 0;
+    border: 1vh solid transparent;
+    border-image: url("../../resources/game_page/pageres/border.png") 27 round;
 }
 
 #sk0,#sk1,#sk2,#sk3 {
@@ -95,11 +101,11 @@
 .skill-desc-box {
     position: absolute;
     width: 40%;
-    height: 40%;
+    height: 35%;
     right: 15%;
-    top: -10%;
-    border: 1vh solid var(--blackblackgrey);
-    background-color: var(--blacken);
+    top: -3%;
+    border: 1vh solid transparent;
+    border-image: url("../../resources/game_page/pageres/border.png") 27 round;
 }
 
 .skill-box,.map{
@@ -147,7 +153,7 @@
 .main-curtain {
     height: 110%;
     width: 100%;
-    background-image: url("../../resources/game_page/back/curtains.png");
+    background-image: url("../../resources/game_page/pageres/curtains.png");
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
