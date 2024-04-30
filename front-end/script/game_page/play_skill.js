@@ -1,4 +1,4 @@
-const DEATHTIME = 550;
+const DEATHTIME = 250;
 function playSkill(id, player) {
     // check id and hero and get hp and en
     var hp = -20;

@@ -23,7 +23,7 @@ function exploreGrid(row, col, range) {
         const newCol = col + dir.col;
         if (newRow >= 0 && newRow < size && newCol >= 0 && newCol < size) {
             if (!getDiv(newRow + "-" + newCol).classList.contains(wallClass)) {
-                isBlocked = isClassPresent(newRow + "-" + newCol, enemClass);
+                isBlocked = isClassPresent(newRow + "-" + newCol, enemClass) || isClassPresent(newRow + "-" + newCol, treasureClass);
 
                 getDiv(newRow + "-" + newCol).classList.add(moveClass);
                 const newRange = range - 1;

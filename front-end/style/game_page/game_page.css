@@ -46,6 +46,7 @@
     top: 12%;
     background-size: 100% 100%;
     z-index: -1;
+    animation: back-lighting 750ms infinite alternate-reverse ease-in-out;
 }
 
 .skill-box {
@@ -59,8 +60,7 @@
     aspect-ratio: 4;
     width: 37vh;
     left:5%;
-    top: 5%;
-    border: 1px solid seagreen;
+    top: 0;
 }
 
 #sk0,#sk1,#sk2,#sk3 {
@@ -94,10 +94,10 @@
 
 .skill-desc-box {
     position: absolute;
-    width: 80%;
-    height: 50%;
-    left: 5%;
-    top: 35%;
+    width: 40%;
+    height: 40%;
+    right: 15%;
+    top: -10%;
     border: 1vh solid var(--blackblackgrey);
     background-color: var(--blacken);
 }
@@ -167,4 +167,24 @@
 
 .active-curtain {
     transform: translateY(-72%);
+}
+
+@-webkit-keyframes back-lighting {
+    0% {
+        filter: saturate(150%) blur(0.5px);
+    }
+
+    100% {
+        filter: saturate(200%) blur(0.9px);
+    }
+}
+
+@keyframes back-lighting {
+    0% {
+        filter: saturate(150%) blur(0.5px);
+    }
+
+    100% {
+        filter: saturate(200%) blur(0.6px);
+    }
 }

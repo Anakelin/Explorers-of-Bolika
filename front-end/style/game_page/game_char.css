@@ -35,13 +35,17 @@
 
 #user-char {
     position: absolute;
+    /*
     border: 1px solid red;
+    */
 }
 
 #monster-char {
     position: absolute;    
     transform: scaleX(-1);
+    /*
     border: 1px solid blue;
+    */
 }
 
 #user-ui.char-ui {
