@@ -23,7 +23,7 @@ let db = new sqlite3.Database(databaseLocation, sqlite3.OPEN_READWRITE, (err) =>
 });
 
 //test write
-
+/*
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS Request (Id INTEGER PRIMARY KEY AUTOINCREMENT, userId INTEGER, hero INTEGER, purchaseDate TEXT, state TEXT)`);
 
@@ -40,7 +40,7 @@ db.serialize(() => {
   }
   stmt.finalize();
 });
-
+*/
 //test read
 /*
 let sql = `SELECT * FROM lorem`;
@@ -129,10 +129,12 @@ io.on('connection', (socket) => {
   })
 
   socket.on('checkUser', (data) => {
-    let query = `SELECT TRUE FROM Users WHERE name = "${data[0]}" AND password = ${data[1]};`;
-    db.all(query, function(err, res) {  
-      if(res) {
-        socket.emit('userLogin-success');
+    query = `SELECT * FROM PLAYER WHERE username = "${data[0]}" AND password = "${data[1]}";`;
+  
+    db.all(query, function (err, user) {  
+      console.log(user.length);
+      if (user.length != 0) {
+        socket.emit('userLogin-success', user);
       } else {
         socket.emit('userLogin-failed');
       }

@@ -23,7 +23,12 @@ function tryLogin() {
     
 }
 
-socket.on('userLogin-success', function () {
+socket.on('userLogin-success', function (user) {
+    localStorage.setItem('username', user[0].username);
+    localStorage.setItem('useremail', user[0].email);
+    localStorage.setItem('usercurrency', user[0].currency);
+    localStorage.setItem('userwin', user[0].win);
+    localStorage.setItem('userloss', user[0].loss);
     pageChange(userUrl);
 })
 

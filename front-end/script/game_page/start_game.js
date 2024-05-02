@@ -35,5 +35,5 @@ function preload() {
         }
     }
 }
-
+//console.log(localStorage.getItem("IsLogged"));
 window.onload = startGame;
