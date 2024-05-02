@@ -50,7 +50,7 @@
     transition: 350ms ease-out;
 }
 
-.spawn {
+.spawn, .treasure {
     opacity: 0.5;
 }
 
@@ -58,9 +58,11 @@
     opacity: 1;
 }
 
+
 .move-cell.treasure,
 .move-cell.bonfire,
-.move-cell.enem{
+.move-cell.enem,
+.move-cell.spawn{
     opacity: 1.0;
     cursor: url("../../resources/game_page/pageres/arrow_interest.png"), auto;;
 }

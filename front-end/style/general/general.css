@@ -65,3 +65,11 @@ label {
 input {
   cursor: url("../../resources/game_page/pageres/arrow_text.png"), auto;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--blacken) inset !important;
+  -webkit-text-fill-color: var(--blood-red) !important;
+}

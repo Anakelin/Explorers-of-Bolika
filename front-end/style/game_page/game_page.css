@@ -67,6 +67,9 @@
     top: 0;
     border: 1vh solid transparent;
     border-image: url("../../resources/game_page/pageres/border.png") 27 round;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 #sk0,#sk1,#sk2,#sk3 {
@@ -129,8 +132,8 @@
 .main-box-forw {
     position: absolute;
     left: 0;
-    top: 0;
-    height: 100%;
+    top: -1%;
+    height: 102%;
     width: 100%;
     background-image: url("../../resources/game_page/back/game_page_forw.png");
     background-position: center;
@@ -142,8 +145,8 @@
 .main-curtain-box {
     position: absolute;
     right: 10vh;
-    top: 0;
-    height: 100%;
+    top: -1%;
+    height: 102%;
     width: 50%;
     z-index: 0;
     pointer-events: none;

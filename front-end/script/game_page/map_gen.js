@@ -39,14 +39,6 @@ function showMove(id) {
     buildMove(row, col);
 }
 
-function isEnd() {
-    const elements = document.querySelectorAll(`.${treasureClass}`);
-    if (elements.length == 0) {
-        return true;
-    }
-    return false;
-}
-
 function addCell(size, i, j, type) {
     var div = document.createElement("div");
     div.classList = "cell";
@@ -82,13 +74,17 @@ function addCell(size, i, j, type) {
             if (isClassPresent(div.id, hallClass)) {
                 setHallBackground();
                 if (isBattle()) {
-                    //startBattleFlip();
+                    startBattle();
                 }
-
             } else if (isClassPresent(div.id, roomClass)) {
                 setMainBackground();
             } else if (isClassPresent(div.id, spawnClass)) {
                 setSpawnBackground();
+                if (isWin()) {
+                    winGame();
+                    //save data to account
+                    //pageChange("./user_page.html");
+                }
             } else if (isClassPresent(div.id, enemClass)) {
                 setMainBackground();
                 startBattle();
@@ -98,11 +94,6 @@ function addCell(size, i, j, type) {
                 div.classList.remove(treasureClass);
                 div.classList.add(roomClass);
                 //check if game as ended
-                if (isEnd()) {
-                    console.log("exit");
-                    //save data to account
-                    //pageChange("./user_page.html");
-                }
             }
 
         }
