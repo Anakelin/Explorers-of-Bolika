@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="./style/general/general_boxes.css">
   <link rel="stylesheet" href="./style/general/loading.css">
   <link rel="stylesheet" href="./style/sign_in_page/sign_in.css">
+  <script src="./script/loader.js"></script>
+  <script src="./script/general.js"></script>
 </head>
 <body>
   <div id="loader-back">
@@ -33,14 +35,12 @@
     <div class="main-box-back"></div>
   </div>
   <div class="btn-box">
-    <div id="btn-log-in" class="btn" onclick="pageChange('./log_in.html')">Log In</div>
+    <div id="btn-log-in" class="btn" onclick="pageChange(loginUrl)">Log In</div>
     <div id="btn-sign-in" class="btn" onclick="trySignin()">Sign In</div>
   </div>
   <div class="content-back"></div>
   <div class="content-back-back"></div>
 </div>
-  <script src="./script/loader.js"></script>
-  <script src="./script/general.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="./script/socket/playerCount.js"></script>
   <script src="./script/signin_page.js/signin.js"></script>

@@ -24,7 +24,7 @@ function tryLogin() {
 }
 
 socket.on('userLogin-success', function () {
-    pageChange('./user_page.html');
+    pageChange(userUrl);
 })
 
 socket.on('userLogin-failed', function () {

@@ -1,5 +1,6 @@
 function buildMove(row, col) {
     let range = move;
+    removeClass(moveClass);
     exploreGrid(row, col, range);
     getDiv(row + "-" + col).classList.remove(moveClass);
 }
@@ -24,7 +25,6 @@ function exploreGrid(row, col, range) {
         if (newRow >= 0 && newRow < size && newCol >= 0 && newCol < size) {
             if (!getDiv(newRow + "-" + newCol).classList.contains(wallClass)) {
                 isBlocked = isClassPresent(newRow + "-" + newCol, enemClass) || isClassPresent(newRow + "-" + newCol, treasureClass);
-
                 getDiv(newRow + "-" + newCol).classList.add(moveClass);
                 const newRange = range - 1;
 

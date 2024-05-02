@@ -13,12 +13,16 @@
   <link rel="stylesheet" href="./style/game_page/game_char.css">
   <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="./script/loader.js"></script>
+  <script src="./script/general.js"></script>
 </head>
 <body>
   <div id="loader-back">
     <div id="loader"></div>
 </div>
 <div id="content" class="content">
+  <div class="pop-up-alert">
+  </div>
   <div class="main-box">
     <div class="title-box">
       <label class="title-box-text">Exploration</label>
@@ -80,10 +84,8 @@
   <div class="content-back"></div>
   <div class="content-back-back"></div>
 </div>
-  <script src="./script/loader.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="./script/socket/playerCount.js"></script>
-  <script src="./script/general.js"></script>
   <script src="./script/game_page/dynamic_back.js"></script>
   <script src="./script/game_page/battle_fun.js"></script>
   <script src="./script/game_page/win_game.js"></script>

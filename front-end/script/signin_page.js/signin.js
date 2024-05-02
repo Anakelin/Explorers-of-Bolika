@@ -28,7 +28,7 @@ function trySignin() {
 }
 
 socket.on('userSignin-success', function () {
-    pageChange('./user_page.html');
+    pageChange(userUrl);
 })
 
 socket.on('userSignin-failed', function () {

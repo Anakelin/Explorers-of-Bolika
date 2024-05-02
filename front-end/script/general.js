@@ -9,6 +9,12 @@ const hallClass = "hall";
 const bonfireClass = "bonfire";
 const treasureClass = "treasure";
 const alertPopup = "pop-up-alert";
+const loginUrl = './log_in.html';
+const signinUrl = './sign_in.html';
+const gameUrl = './game_page.html';
+const userUrl = './user_page.html';
+//const adminUrl = './log_in.html';
+
 
 function getDiv(id) {
     return document.getElementById(id);
@@ -39,7 +45,7 @@ function alertMessage(msg) {
     const elements = getClass(alertPopup);
     elements.forEach(element =>{
         element.innerHTML= msg;
-        element.style.zIndex= 3;
+        element.style.zIndex= 10;
         element.style.display="block";
     });    
     setTimeout(function(){

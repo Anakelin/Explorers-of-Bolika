@@ -6,5 +6,11 @@ function isWin() {
 }
 
 function winGame() {
-    window.alert("You win!");
+    //  pop-up
+    //  window.alert("You win!");
+    alertMessage("You Win !");
+    //save data
+    setTimeout(() => {
+        pageChange(userUrl);
+    }, 1200);
 }

@@ -2,7 +2,7 @@ var map = document.getElementById("map");
 var size = 10;
 
 var startPos = [0, 0];
-var move = 5;
+var move = 12;
 function createMap() {
     setMainBackground();
     var style = "grid-template-columns:";
@@ -21,19 +21,13 @@ function createMap() {
 function removeClass(className) {
     const elements = document.querySelectorAll(`.${className}`);
     elements.forEach(element => {
-        element.classList.remove(userClass);
+        element.classList.remove(className);
     });
 }
 
 function showMove(id) {
     var pos = id.split("-").map(Number);
     var endCell = [pos[0] + move, pos[1] + move];
-    //clean board
-    const elements = document.querySelectorAll(`.${moveClass}`);
-    elements.forEach(element => {
-        element.classList.remove(moveClass);
-    });
-
     const row = pos[0];
     const col = pos[1];
     buildMove(row, col);
@@ -82,8 +76,6 @@ function addCell(size, i, j, type) {
                 setSpawnBackground();
                 if (isWin()) {
                     winGame();
-                    //save data to account
-                    //pageChange("./user_page.html");
                 }
             } else if (isClassPresent(div.id, enemClass)) {
                 setMainBackground();
