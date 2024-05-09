@@ -129,17 +129,22 @@ io.on('connection', (socket) => {
   })
 
   socket.on('checkUser', (data) => {
-    query = `SELECT * FROM PLAYER WHERE username = "${data[0]}" AND password = "${data[1]}";`;
-  
-    db.all(query, function (err, user) {  
-      console.log(user.length);
+    let queryAccount = `SELECT username,email,currency,win,loss FROM PLAYER WHERE username = "${data[0]}" AND password = "${data[1]}";`;
+    
+    db.all(queryAccount, function (err, user) {  
       if (user.length != 0) {
-        socket.emit('userLogin-success', user);
+        let queryChars = `SELECT * FROM Torchbearer ORDER BY id`;
+        db.all(queryChars, function (err, chars) {
+          console.log(chars);
+          socket.emit('userLogin-success', [user[0], chars]);  
+        });
+        
       } else {
         socket.emit('userLogin-failed');
       }
     });
   })
+
 });
 
 server.listen(port, () => {

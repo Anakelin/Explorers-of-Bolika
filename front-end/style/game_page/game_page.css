@@ -3,9 +3,8 @@
     height: 90%;
     width: 90%;
     top: 5%;
-    border: 3vh solid transparent;
-    border-image: url("../../resources/game_page/pageres/border.png") 27 round;
 }
+
 
 .explore-box, .battle-box{
     position: absolute;
@@ -50,7 +49,7 @@
     z-index: -1;
     animation: back-lighting 750ms infinite alternate-reverse ease-in-out;
     border: 1vh solid transparent;
-    border-image: url("../../resources/game_page/pageres/border.png") 27 round;
+    border-image: var(--border-x);
 }
 
 .skill-box {
@@ -66,7 +65,7 @@
     left:5%;
     top: 0;
     border: 1vh solid transparent;
-    border-image: url("../../resources/game_page/pageres/border.png") 27 round;
+    border-image: var(--border-x) ;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -86,19 +85,19 @@
 }
 
 #sk0 {
-    background-image: url("../../resources/game_page/char/default/skills/icon_smite.png");
+    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_smite.png");
 }
 
 #sk1 {
-    background-image: url("../../resources/game_page/char/default/skills/icon_holy_lance.png");
+    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_holy_lance.png");
 }
 
 #sk2 {
-    background-image: url("../../resources/game_page/char/default/skills/icon_rally_cry.png");
+    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_rally_cry.png");
 }
 
 #sk3 {
-    background-image: url("../../resources/game_page/char/default/skills/icon_heal_words.png");
+    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_heal_words.png");
 }
 
 .skill-desc-box {
@@ -108,7 +107,7 @@
     right: 15%;
     top: -3%;
     border: 1vh solid transparent;
-    border-image: url("../../resources/game_page/pageres/border.png") 27 round;
+    border-image: var(--border-x) ;
 }
 
 .skill-box,.map{
@@ -121,7 +120,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background-image: url("../../resources/game_page/back/game_page_back.png");
+    background-image: url("../../resources/media/back/game_page_back.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     pointer-events: none;
@@ -135,7 +134,7 @@
     top: -1%;
     height: 102%;
     width: 100%;
-    background-image: url("../../resources/game_page/back/game_page_forw.png");
+    background-image: url("../../resources/media/back/game_page_forw.png");
     background-position: center;
     z-index: 1;
     background-size: 100% 100%;
@@ -156,7 +155,7 @@
 .main-curtain {
     height: 110%;
     width: 100%;
-    background-image: url("../../resources/game_page/pageres/curtains.png");
+    background-image: url("../../resources/media/pageres/curtains.png");
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;

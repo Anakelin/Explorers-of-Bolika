@@ -1,0 +1,21 @@
+.explore-info-box.title {
+    top: 2%;
+    left: 8%;
+}
+
+.explore-info-box.char.mini-title,
+.explore-info-box.difficulty.mini-title,
+.explore-info-box.location.mini-title{
+    left: 32%;
+}
+.explore-info-box.location.mini-title {
+    top: 15%;
+}
+
+.explore-info-box.difficulty.mini-title {
+    top: 36%;
+}
+
+.explore-info-box.char.mini-title {
+    top: 58%;
+}

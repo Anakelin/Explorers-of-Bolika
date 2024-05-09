@@ -8,6 +8,7 @@
     top: 0;
     left: 0;
 }
+
 .title-box {
     position: relative;
     margin-left: 35%;
@@ -15,7 +16,9 @@
     top: -2.8vw;
     width: auto;
     height: fit-content;
-    border: 1vh solid var(--blackgrey);
+    border: 3vh solid transparent;
+    border-radius: 10px;
+    border-image: var(--border-x);
     background-color: var(--blacken);
     padding-top: 1vh;
     padding-bottom: 1vh;
@@ -34,7 +37,9 @@
     top: 5vw;
     height: 80%;
     aspect-ratio: 4/3;
-    border: 1vh solid var(--blackgrey);
+    border-radius: 10px;
+    border: 3vh solid transparent;
+    border-image: var(--border-x) ;
     min-width: 20%;
     z-index: 1;
     animation: load-in-leftr var(--swift-animation) forwards;

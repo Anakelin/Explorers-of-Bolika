@@ -1,0 +1,79 @@
+.Ruins {
+    background-image: url("../../resources/media/back/ruin_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+}
+
+.Grave {
+    background-image: url("../../resources/media/back/grave_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+}
+
+.Woods {
+    background-image: url("../../resources/media/back/forest_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+}
+
+.Bog {
+    background-image: url("../../resources/media/back/swamp_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 650ms infinite alternate-reverse ease-in-out;
+}
+
+.Fire {
+    background-image: url("../../resources/media/back/pyro_main.png");
+    transition: 300ms ease-out;
+    animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
+}
+
+@-webkit-keyframes back-lighting {
+    0% {
+        filter: saturate(150%) blur(0.5px);
+    }
+
+    100% {
+        filter: saturate(200%) blur(0.9px);
+    }
+}
+
+@keyframes back-lighting {
+    0% {
+        filter: saturate(150%) blur(0.5px);
+    }
+
+    100% {
+        filter: saturate(200%) blur(0.6px);
+    }
+}
+
+@keyframes back-lighting {
+    0% {
+        filter: saturate(150%) blur(0.5px);
+    }
+
+    100% {
+        filter: saturate(170%) blur(0.6px);
+    }
+}
+
+@keyframes back-lighting-object {
+    0% {
+        filter: saturate(140%) blur(0.5px);
+    }
+
+    100% {
+        filter: saturate(160%) blur(0.6px);
+    }
+}
+
+@keyframes back-lighting-object {
+    0% {
+        filter: saturate(140%) blur(0.5px);
+    }
+
+    100% {
+        filter: saturate(160%) blur(0.6px);
+    }
+}

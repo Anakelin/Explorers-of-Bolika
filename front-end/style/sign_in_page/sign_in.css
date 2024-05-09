@@ -5,7 +5,7 @@
 .content-back {
     background-repeat: no-repeat;
     background-size:100vw;
-    background-image: url("../../resources/game_page/back/sign_in_back.png");
+    background-image: url("../../resources/media/back/sign_in_back.png");
     animation: back-lighting 500ms infinite alternate-reverse ease-in-out;
     z-index: -3;
 }

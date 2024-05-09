@@ -1,0 +1,76 @@
+:root {
+    --distance: 10%;
+    --start-distance:15%;
+}
+
+.account-info-box.title{
+    top: 2%;
+    left: 20%;
+}
+
+.account-info-box.game-info,.account-info-box.user-info{
+    display: inline-block;
+}
+
+.account-info-box.data {
+    position: relative;
+    left: 5%;
+}
+
+.account-info-box.user-info.mini-title {
+    top: calc(var(--start-distance) + var(--distance)*0);
+}
+
+.account-info-box.user-info.username{
+    top: calc(var(--start-distance) + var(--distance)*1);
+}
+
+.account-info-box.user-info.email {
+    top: calc(var(--start-distance) + var(--distance)*2);
+}
+
+.account-info-box.game-info.mini-title{
+    top: calc(var(--start-distance) + var(--distance)*4);
+}
+
+.account-info-box.game-info.currency {
+    top: calc(var(--start-distance) + var(--distance)*5);
+}
+
+.account-info-box.game-info.currency.data::after {
+    content: "";
+        display: inline-block;
+        vertical-align: middle;
+        width: 2vw;
+        aspect-ratio: 1;
+        background: url("../../resources/media/pageres/currency_icon.png");
+        background-size: cover;
+}
+
+.account-info-box.game-info.win {
+    top: calc(var(--start-distance) + var(--distance)*6);
+}
+
+.account-info-box.game-info.win.data::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 2vw;
+    aspect-ratio: 1;
+    background: url("../../resources/media/pageres/win_icon.png");
+    background-size: cover;
+}
+
+.account-info-box.game-info.loss {
+    top: calc(var(--start-distance) + var(--distance)*7);
+}
+
+.account-info-box.game-info.loss.data::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 2vw;
+    aspect-ratio: 1;
+    background: url("../../resources/media/pageres/loss_icon.png");
+    background-size: cover;
+}

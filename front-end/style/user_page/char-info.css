@@ -1,0 +1,190 @@
+
+.char-info-box.title {
+    position: absolute;
+    top: 15%;
+    left: 2%;
+    border: 1vh solid transparent;
+    border-image: var(--border-x);
+    height: fit-content;
+    width: fit-content;
+    font-size: 1.5vw;
+}
+
+.char-info-box.name {
+    position: absolute;
+    top: 18%;
+    left:15%;
+    border-image: var(--border-x);
+    height: fit-content;
+    width: fit-content;
+    font-size: 3.5vw;
+    z-index: -1;
+}
+
+.char-info-box.img {
+    top: 35%;
+    left: 1.5%;
+    width: 25%;
+    height: 35%;
+    background-image: url("../../resources/media/char/torchbearers/default/base.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.char-info-box.desc {
+    top: 41.5%;
+    left: 35%;
+    width: 55%;
+    height: 20%;
+    font-size: 1.5vw;
+}
+
+.char-info-box.stats {
+    top: 75%;
+    left: 1.5%;
+    width: 25%;
+    height: 20%;
+    font-size: 1.5vw;
+}
+
+.char-info-box.skills {
+    top: 70%;
+    right: 3%;
+    height: 25%;
+    width: 60%;
+    font-size: 1.5vw;
+    border-image: var(--border);
+}
+
+.char-info-box.skill#skill-0,
+.char-info-box.skill#skill-1,
+.char-info-box.skill#skill-2,
+.char-info-box.skill#skill-3 {
+    height: 25%;
+    width: 100%;
+    border: transparent;
+    font-size: 1.5vw;
+    background-color: transparent;
+}
+
+.char-info-box.skill#skill-0 {
+    top: 0;
+    left: 0;
+}
+
+.char-info-box.skill#skill-1 {
+    top: 25%;
+    left: 0;
+}
+
+.char-info-box.skill#skill-2 {
+    top: 50%;
+    left: 0;
+}
+
+.char-info-box.skill#skill-3 {
+    top: 75%;
+    left: 0;
+}
+
+.char-info-box.skill>.char-info-inner-box {
+    position: absolute;
+}
+
+.char-info-box.skill>.char-info-inner-box.icon {
+    top: 0;
+    left: 0;
+    height: 100%;
+    aspect-ratio: 1;
+    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_smite.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.char-info-box.skill>.char-info-inner-box.value {
+    left: 10%;
+    height: 99%;
+    aspect-ratio: 2;
+    padding-top: 1%;
+    padding-left: 1%;
+    line-height: 80%;
+}
+
+.char-info-box.skill>.char-info-inner-box.desc {
+    left: 0;
+    height: 99%;
+    width: 80%;
+    padding-top: 2%;
+    padding-left: 1%;
+    line-height: 80%;
+    text-align: right;
+}
+
+.hp-value {
+    color: seagreen;
+}
+
+.hp-value::after {
+    content: " HP";
+    color: seagreen;
+}
+
+.en-value {
+    color:darkcyan;
+}
+
+.en-value::after {
+    content: " EN";
+    color: darkcyan;
+}
+
+.stats.lv::before{
+    content: "LEVEL: ";
+}
+
+.stats.hp {
+    color: seagreen;
+}
+
+.stats.hp::after {
+    content: " HP";
+    color: seagreen;
+}
+
+.stats.en {
+    color: darkcyan;
+}
+
+.stats.en::after {
+    content: " EN";
+    color: darkcyan;
+}
+
+.stats.mov::before {
+    content: "MOVE: ";
+    color:var(--blood-red);
+}
+
+.stats.mov {
+    color: var(--blood-red);
+}
+
+.stats.cost::before {
+    content: "COST: ";
+    color: goldenrod;
+}
+
+.stats.cost {
+    color: goldenrod;
+}
+
+.stats.cost::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.5vw;
+    aspect-ratio: 1;
+    background: url("../../resources/media/pageres/currency_icon.png");
+    background-size: cover;
+}

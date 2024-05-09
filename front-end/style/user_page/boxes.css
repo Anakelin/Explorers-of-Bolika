@@ -1,0 +1,128 @@
+.content-back {
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -3;
+}
+
+.title-box {
+    z-index: 100;
+}
+.main-box {
+    height: 90%;
+    width: 90%;
+    top: 5%;
+    z-index: 0;
+    animation: load-in-leftr var(--swift-animation) forwards;
+}
+
+.banner-box {
+    position: absolute;
+    left: 0;
+    top: -1%;
+    height: 101%;
+    width: 100%;
+    background-image: url("../../resources/media/pageres/curtains.png");
+    background-size: 40% 80%;
+    background-position: 50% -290%;
+    background-repeat:repeat-x;
+    z-index: 5;
+    animation: back-lighting-object 4s infinite alternate-reverse ease-in-out;
+    pointer-events: none;
+}
+
+.inner-box {
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    background-image: url("../../resources/media/pageres/map.png");
+    background-position: center;    
+    animation: back-lighting-object 4s infinite alternate-reverse ease-in-out;
+}
+
+
+.inner-box.left,.inner-box.right {
+    background-size: 100% 100%;
+    height: 82%;
+    top: 20%;
+}
+
+
+.left {
+    left: 0;    
+}
+
+.right {
+    right: 0;
+}
+
+.inner-box.center {
+    left: 20%;
+    width: 60%;
+    background-image: url("../../resources/media/pageres/map.png");
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+.main-box-center {
+    position: absolute;
+    left: 0;
+    top: -1%;
+    height: 101%;
+    width: 100%;
+}
+
+.inner-inner-box {
+    position: absolute;
+    height: 100%;
+    width: 8%;
+}
+
+.inner-inner-box.left {
+    border-left: 3vh solid transparent;
+    border-image: var(--border-y);
+}
+
+.inner-inner-box.right {
+    border-right: 3vh solid transparent;
+    border-image: var(--border-y);
+}
+
+.inner-inner-box.center {
+    width: 84%;
+    left: 8%;
+    background-color: transparent;
+}
+
+.char-info-box{
+    position: absolute;
+    border: 2vh solid transparent;
+    background-color: var(--blacken);
+    border-image: var(--border) ;
+}
+.account-info-box, .explore-info-box {
+    position: absolute;
+    left: 15%;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.5vw;   
+}
+
+
+.title {
+    font-size: 2.5vw;
+    width: fit-content;
+    height: fit-content;
+}
+
+.mini-title {
+    font-size: 2vw;
+}
+
+
+.btn-box {
+    border: 2vh solid transparent;
+    background-color: var(--blacken);
+    border-image: var(--border);
+}

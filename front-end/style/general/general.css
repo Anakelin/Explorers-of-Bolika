@@ -13,6 +13,9 @@
   --font-height-normal: 4vh;
   --font-height-alert: 3vh;
   --swift-animation:350ms;
+  --border: url("../../resources/media/pageres/border.png") 27 round;
+  --border-x: url("../../resources/media/pageres/border_x.png") 27 round;
+  --border-y: url("../../resources/media/pageres/border_y.png") 27 round;
 }
 
 @font-face { font-family: Medieval; src: url('../../resources/fonts/DwarvenAxe\ BB\ W00\ Regular.ttf'); } 
@@ -25,7 +28,7 @@ html,body{
   margin: 0;
   color: var(--whitewhitegrey);
   font-family: Medieval;
-  cursor: url("../../resources/game_page/pageres/arrow.png"),auto;
+  cursor: url("../../resources/media/pageres/arrow.png"),auto;
 }
 
 label {
@@ -36,7 +39,7 @@ label {
 }
 
 .btn {
-  cursor: url("../../resources/game_page/pageres/arrow_highlight.png"), auto;
+  cursor: url("../../resources/media/pageres/arrow_highlight.png"), auto;
   transition:  350ms ease-in-out;
 }
 
@@ -63,7 +66,7 @@ label {
   }
 
 input {
-  cursor: url("../../resources/game_page/pageres/arrow_text.png"), auto;
+  cursor: url("../../resources/media/pageres/arrow_text.png"), auto;
 }
 
 input:-webkit-autofill,

@@ -1,0 +1,142 @@
+:root {
+    --btn-fixed: 3vh solid transparent;
+    --btn-direction: 3vh solid var(--blackgrey);
+    --btn-direction-highlight: 3vh solid var(--blood-red);
+    --btn-fixed-tall: 4vh solid transparent;
+    --btn-direction-tall: 4vh solid var(--whitegrey);
+    --btn-direction-tall-highlight: 4vh solid var(--blood-red);
+}
+
+.back{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-top: var(--btn-fixed);
+    border-right: var(--btn-direction);
+    border-bottom: var(--btn-fixed);
+}
+
+.forw {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-top: var(--btn-fixed);
+    border-left: var(--btn-direction);
+    border-bottom: var(--btn-fixed);
+}
+
+.back:hover {
+    border-top: var(--btn-fixed);
+    border-right: var(--btn-direction-highlight);
+    border-bottom: var(--btn-fixed);
+}
+
+.forw:hover {
+    border-top: var(--btn-fixed);
+    border-left: var(--btn-direction-highlight);
+    border-bottom: var(--btn-fixed);
+}
+
+.back.tall{
+    position: absolute;
+    border-top: var(--btn-fixed-tall);
+    border-right: var(--btn-direction-tall);
+    border-bottom: var(--btn-fixed-tall);
+}
+
+.forw.tall{
+    position: absolute;
+    border-top: var(--btn-fixed-tall);
+    border-left: var(--btn-direction-tall);
+    border-bottom: var(--btn-fixed-tall);
+}
+
+.back.tall:hover {
+    border-top: var(--btn-fixed-tall);
+    border-right: var(--btn-direction-tall-highlight);
+    border-bottom: var(--btn-fixed-tall);
+}
+
+.forw.tall:hover {
+    border-top: var(--btn-fixed-tall);
+    border-left: var(--btn-direction-tall-highlight);
+    border-bottom: var(--btn-fixed-tall);
+}
+
+.btn-box.btn-loc,
+.btn-box.btn-diff,
+.btn-box.btn-buy,
+.btn-box.btn-start {
+    position: absolute;
+    left: 25%;
+    width: 40%;
+    height: 2.5vw;
+    text-align: center;
+    transition: 350ms ease-in-out;
+}
+
+.btn-box.btn-loc {
+    top: 22%;
+}
+
+.btn-box.btn-diff {
+    top: 44%;
+}
+
+.btn-box.btn-buy {
+    top: 66%;
+}
+
+.btn-box.btn-start {
+    left: 2vw;
+    width: 65%;
+    height: 4vw;
+    top: 80%;
+}
+
+.btn-loc.back,
+.btn-loc.forw,
+.btn-diff.back,
+.btn-diff.forw {
+    position: absolute;
+    top: 5%;
+}
+
+.btn-loc.back,
+.btn-diff.back {
+    left: -40%;
+}
+
+.btn-loc.forw,
+.btn-diff.forw {
+    right: -40%;
+}
+
+.btn-loc.text,
+.btn-diff.text,
+.btn-buy.text {
+    width: 20%;
+    height: 20%;
+    text-align: center;
+    font-size: 2.5vw;
+}
+
+.btn-loc.text {
+    font-size: 2vw;
+}
+
+.btn-start.text {
+    position: relative;
+    top: 20%;
+    font-size: 2vw;
+}
+
+.btn-box.btn-start:hover,.btn-box.btn-buy:hover{
+    background-color: var(--blood-red);
+    color: var(--blackblackgrey);
+    cursor: url("../../resources/media/pageres/arrow_interest.png");
+}

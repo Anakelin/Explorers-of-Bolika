@@ -1,4 +1,5 @@
-let backgrounds = ["Grave","Ruins","Woods","Swamp","Fire"];
+let backgrounds = ["Grave","Ruins","Woods","Bog","Fire"];
+let difId = "diff-name";
 
 const diffEasy = 0.75;
 const diffNormal = 1.0;
@@ -7,22 +8,46 @@ const diffHard = 1.5;
 const backId = "background";
 const locId = "loc-name";
 
+const accountData = JSON.parse(localStorage.getItem('user'));
+const charsData = JSON.parse(localStorage.getItem('chars'));
+let maxId = charsData.length;
+let currentId = 5;
+const tempchar = charsData[currentId];
+localStorage.setItem('torchbearer', JSON.stringify(tempchar));
+let charLocation = `background-image: url("../../resources/media/char/torchbearers/${tempchar['name']}/attack.png");`;
 
+// set data from database
+getDiv('account-info-name').innerHTML = accountData['username'];
+getDiv('account-info-email').innerHTML = accountData['email'];
+getDiv('account-info-currency').innerHTML = accountData['currency'];
+getDiv('account-info-win').innerHTML = accountData['win'];
+getDiv('account-info-loss').innerHTML = accountData['loss'];
 
-const nameInfo = localStorage.getItem('username');
-const emailInfo = localStorage.getItem('useremail');
-const currencyInfo = localStorage.getItem('usercurrency');
-const winInfo = localStorage.getItem('userwin');
-const lossInfo = localStorage.getItem('userloss');
+getDiv('char-info-name').innerHTML = "The "+tempchar['name'];
+getDiv('char-info-hp').innerHTML = tempchar['maxHP'];
+getDiv('char-info-en').innerHTML = tempchar['maxEN'];
+getDiv('char-info-mov').innerHTML = tempchar['move'];
+getDiv('char-info-cost').innerHTML = tempchar['cost'];
+getDiv('char-info-desc').innerHTML = tempchar['desc'];
+getDiv('char-info-img').style = charLocation;
 
-getDiv('user-info-name').innerHTML = nameInfo;
-getDiv('user-info-email').innerHTML = emailInfo;
-getDiv('game-info-currency').innerHTML = currencyInfo;
-getDiv('game-info-win').innerHTML = winInfo;
-getDiv('game-info-loss').innerHTML = lossInfo;
+// Init explore info
+locForw();
+locBack();
+getDiv(difId).innerHTML = "Normal";
 
 function startGame() {
     pageChange("./game_page.html");
+}
+
+function charForw() {
+    currentId = currentId + 1 <= maxId ? currentId + 1 : 1;
+    console.log(currentId);
+}
+
+function charBack() {
+    currentId = currentId - 1 > 1 ? currentId - 1 : maxId;
+    console.log(currentId);
 }
 
 function locForw() {    
@@ -60,8 +85,8 @@ function locBack() {
     //change location to explore
 }
 
-function difForw() {
-    let difId = "dif-name";
+function diffForw() {
+    
     let dif= getDiv(difId).innerHTML;
     switch(dif) {
         case "Normal":
@@ -70,7 +95,7 @@ function difForw() {
             break;
         case "Easy":
             getDiv(difId).innerHTML = "Normal";
-            localStorage.setItem('diff', diffHard);
+            localStorage.setItem('diff', diffNormal);
         break;
         case "Hard":
             getDiv(difId).innerHTML = "Easy";
@@ -80,8 +105,8 @@ function difForw() {
     //do something
 }
 
-function difBack() {
-    let difId = "dif-name";
+function diffBack() {
+    let difId = "diff-name";
     let dif= getDiv(difId).innerHTML;
     switch(dif) {
         case "Normal":

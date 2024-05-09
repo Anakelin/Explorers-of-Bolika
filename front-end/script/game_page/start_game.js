@@ -1,5 +1,7 @@
-var userLocation = "./resources/game_page/char/default/";
-var enemyLocation = "./resources/game_page/char/rotten/";
+
+const torchbearer = localStorage.getItem('torchbearer');
+var userLocation = `./resources/media/char/torchbearers/${torchbearer['name']}/`;
+var enemyLocation = "./resources/media/char/torchbearers/Rot_King/";
 
 function startGame() {
     createMap();
