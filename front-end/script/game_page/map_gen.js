@@ -2,7 +2,7 @@ var map = document.getElementById("map");
 var size = 10;
 
 var startPos = [0, 0];
-var move = 12;
+var move = torchbearer['move'];
 function createMap() {
     setMainBackground();
     var style = "grid-template-columns:";
@@ -85,6 +85,9 @@ function addCell(size, i, j, type) {
             } else if (isClassPresent(div.id, treasureClass)) {
                 div.classList.remove(treasureClass);
                 div.classList.add(roomClass);
+                if (isWin()) {
+                    alertMessage("Return to the Entrance");    
+                }
                 //check if game as ended
             }
 

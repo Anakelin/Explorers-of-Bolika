@@ -10,6 +10,7 @@ function winGame() {
     //  window.alert("You win!");
     alertMessage("You Win !");
     //save data
+    localStorage.setItem('isLoggedIn', true);
     setTimeout(() => {
         pageChange(userUrl);
     }, 1200);

@@ -29,6 +29,7 @@ html,body{
   color: var(--whitewhitegrey);
   font-family: Medieval;
   cursor: url("../../resources/media/pageres/arrow.png"),auto;
+  user-select: none;
 }
 
 label {

@@ -8,8 +8,10 @@ const chars = {
     monster: "monster"
 };
 
-const maxUserHp = 100;
-const maxUserEn = 50;
+const torchbearer = JSON.parse(localStorage.getItem('torchbearer'));
+
+const maxUserHp = torchbearer['maxHP'];
+const maxUserEn = torchbearer['maxEN'];
 const maxMonsterHp = 100;
 const maxMonsterEn = 50;
 
@@ -43,7 +45,7 @@ function endBattle(isWin) {
 
 function playHp(value, target) {
     if (target == chars.player) {
-        currentUserHp += value;
+        currentUserHp = currentUserHp + value > maxUserHp ? maxUserHp: currentUserHp+value;
         var currentWidth = currentUserHp * maxUserWidthHp / maxUserHp;
         if (currentWidth <= 0) {
             userHp.style.width = "0px";
@@ -53,7 +55,7 @@ function playHp(value, target) {
             userHp.style.width = currentWidth + "px";
         }
     } else {
-        currentMonsterHp += value;
+        currentMonsterHp = currentMonsterHp + value > maxMonsterHp ? maxMonsterHp : currentMonsterHp + value;
         // maxWidth : max = width : currentVal -> width = currentVal * maxWidth / max
         var currentWidth = currentMonsterHp * maxMonsterWidthHp / maxMonsterHp;
         if (currentWidth <= 0) {
@@ -68,7 +70,7 @@ function playHp(value, target) {
 
 function playEn(value, target) {
     if (target == chars.player) {
-        currentUserEn += value;
+        currentUserEn = currentUserEn + value > maxUserEn ? maxUserEn : currentUserEn + value;
         // maxWidth : max = width : currentVal -> width = currentVal * maxWidth / max
         var currentWidth = currentUserEn * maxUserWidthEn / maxUserEn;
         if (currentWidth <= 0) {
@@ -79,7 +81,7 @@ function playEn(value, target) {
             userEn.style.width = currentWidth + "px";
         }
     } else {
-        currentMonsterEn += value;
+        currentMonsterEn = currentMonsterEn + value > maxMonsterEn ? maxMonsterEn : currentMonsterEn + value;
         // maxWidth : max = width : currentVal -> width = currentVal * maxWidth / max
         var currentWidth = currentMonsterEn * maxMonsterWidthEn / maxMonsterEn;
         if (currentWidth <= 0) {

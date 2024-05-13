@@ -1,31 +1,34 @@
 const DEATHTIME = 350;
 const RESETTIME = 300;
-function playSkill(id, player) {
-    // check id and hero and get hp and en
-    var hp = -20;
-    var en = -10;
-    //healing self
-    
-    var target = hp > 0 ? chars.player: chars.monster;
-    playHp(hp, target);    
-    playEn(en, chars.player);
-    
-    //play animation depending on skill id
-    if (true) {
-        //playSmite();    
+function playSkill(type,values) {
+    //set value for monster
+    if (type = 'attack') {
+        //    
     }
-    if (currentMonsterHp <= 0) {
-        setTimeout(function () {
-            endBattle(true);    
+    if (currentUserEn + values[3] >= 0) {
+        playHp(values[0], chars.monster);
+        playEn(values[1], chars.monster);
+
+        //set value for torchbearer
+        playHp(values[2], chars.player);
+        playEn(values[3], chars.player);
+
+        if (currentMonsterHp <= 0) {
             setTimeout(function () {
-                resetMonster();
-            }, RESETTIME);
-        }, DEATHTIME)
-        
-        
-    } else if (currentUserHp <= 0) {
-        setTimeout(function () {
-            endBattle(false);
-        }, DEATHTIME);
+                endBattle(true);
+                setTimeout(function () {
+                    resetMonster();
+                }, RESETTIME);
+            }, DEATHTIME)
+
+
+        } else if (currentUserHp <= 0) {
+            setTimeout(function () {
+                endBattle(false);
+            }, DEATHTIME);
+        }    
+    } else {
+        alertMessage("Not enough energy !");
     }
+    
 }

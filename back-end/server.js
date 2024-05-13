@@ -1,11 +1,12 @@
 // .\back-end\dependencies\node\npm start --prefix .\back-end
 
 //BACK-END
+const QUERIES = require('./server-util/queries.cjs');
+const SERVERCMD = require('./server-util/server_functions.cjs');
+const SQLITE3 = require('sqlite3').verbose();
+const DBLOCATION = './data/test.db';
 
-const sqlite3 = require('sqlite3').verbose();
-const databaseLocation = './data/test.db';
-
-let mydb = new sqlite3.Database(databaseLocation,(err) => {
+let mydb = new SQLITE3.Database(DBLOCATION,(err) => {
   if (err) {
     console.error(err.message);
   } else{
@@ -14,7 +15,7 @@ let mydb = new sqlite3.Database(databaseLocation,(err) => {
 });
 mydb.close();
 
-let db = new sqlite3.Database(databaseLocation, sqlite3.OPEN_READWRITE, (err) => {
+let db = new SQLITE3.Database(DBLOCATION, SQLITE3.OPEN_READWRITE, (err) => {
   if (err) {
     console.error(err.message);
   } else{
@@ -112,7 +113,7 @@ io.on('connection', (socket) => {
       }
     }
   });
-
+  /*
   socket.on('requestReport', (userId) => {
     let query = `SELECT id, hero, state FROM Request WHERE userId = ${userId}`;
     db.all(query, function(err, query) {  
@@ -127,16 +128,16 @@ io.on('connection', (socket) => {
     });
     
   })
-
+  */
   socket.on('checkUser', (data) => {
-    let queryAccount = `SELECT username,email,currency,win,loss FROM PLAYER WHERE username = "${data[0]}" AND password = "${data[1]}";`;
-    
-    db.all(queryAccount, function (err, user) {  
+    db.all(QUERIES.ACCOUNT_DATA,data[0],data[1], function (err, user) {  
       if (user.length != 0) {
-        let queryChars = `SELECT * FROM Torchbearer ORDER BY id`;
-        db.all(queryChars, function (err, chars) {
+        db.all(QUERIES.TORCHBEARER_DATA, function (err, chars) {
           console.log(chars);
-          socket.emit('userLogin-success', [user[0], chars]);  
+          db.all(QUERIES.SKILL_DATA, function (err, skills) {
+            console.log(skills);
+            socket.emit('userLogin-success', [user[0], chars,skills]);
+          });
         });
         
       } else {

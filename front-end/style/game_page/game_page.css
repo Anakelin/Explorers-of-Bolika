@@ -84,22 +84,6 @@
     background-size: cover;
 }
 
-#sk0 {
-    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_smite.png");
-}
-
-#sk1 {
-    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_holy_lance.png");
-}
-
-#sk2 {
-    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_rally_cry.png");
-}
-
-#sk3 {
-    background-image: url("../../resources/media/char/torchbearers/default/skills/icon_heal_words.png");
-}
-
 .skill-desc-box {
     position: absolute;
     width: 40%;
@@ -161,7 +145,13 @@
     background-repeat: no-repeat;
     pointer-events: none;
     transition: 350ms all;
+    
 }
+.main-curtain:hover {
+    color: white;
+}
+
+
 
 .unload {
     animation: unload-in-topb 750ms forwards;

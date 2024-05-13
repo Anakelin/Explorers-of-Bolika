@@ -26,6 +26,7 @@ function tryLogin() {
 socket.on('userLogin-success', function (data) {
     localStorage.setItem('user', JSON.stringify(data[0]));
     localStorage.setItem('chars', JSON.stringify(data[1]));
+    localStorage.setItem('isLoggedIn', true);
     pageChange(userUrl);
 });
 

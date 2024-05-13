@@ -26,26 +26,15 @@
 */
 
 .char {
+    position: absolute;
     margin-left: 3%;
     width: 20vh;
     aspect-ratio: 0.85;
     background-size: 100% 100%;
-    background-image: url("../../resources/media/char/torchbearers/default/base.png");
-}
-
-#user-char {
-    position: absolute;
-    /*
-    border: 1px solid red;
-    */
 }
 
 #monster-char {
-    position: absolute;    
     transform: scaleX(-1);
-    /*
-    border: 1px solid blue;
-    */
 }
 
 #user-ui.char-ui {
