@@ -1,5 +1,8 @@
 //Page requires account to access
-
+const skillType = {
+    attack: 'attack',
+    heal: 'heal'
+}
 if (localStorage.getItem('isGameStarted') === null) {
     pageChange(loginUrl);
 } else {
@@ -38,13 +41,15 @@ function startGame() {
     getDiv(`sk${3}`).style = `background-image: url("../../resources/media/char/torchbearers/Shared/skills/${skills[0]['filename']}.png");`;
     getDiv(`sk${3}`).addEventListener("click", function () {
         playSkill(
-            type,
+            skillType.heal,
             [
                 skills[0]['hpEnemy'],
                 skills[0]['enEnemy'],
                 skills[0]['hpUser'],
                 skills[0]['enUser']
-            ]
+            ],
+            userLocation,
+            enemyLocation
         );
     });
     
@@ -54,12 +59,12 @@ function startGame() {
     for (let i = 1; i < 4; i++) {
         var j = i - 1;
         getDiv(`sk${j}`).style = `background-image: url("../../resources/media/char/torchbearers/${torchbearer['name']}/skills/${skills[i]['filename']}.png");`;
-        var type = skills[i]['hpEnemy'] == 0 && skills[i]['enEnemy'] == 0 ? 'heal':'attack';
         getDiv(`sk${j}`).addEventListener("mouseover", function () {
             showDesc(skills[i]['description']);
         });
-
         getDiv(`sk${j}`).addEventListener("click", function () {
+            let type = skills[i]['filename'].includes('heal') ? skillType.heal : skillType.attack;
+            console.log(skills[i]['filename'], skills[i]['filename'].includes('heal'));
             playSkill(
                 type,
                 [
@@ -67,13 +72,17 @@ function startGame() {
                     skills[i]['enEnemy'],
                     skills[i]['hpUser'],
                     skills[i]['enUser']
-                ]
+                ],
+                userLocation,
+                enemyLocation
             );
         });
     }
     //chars
-    getDiv('user-char').style = `background-image: url("${userLocation}/base.png");`;
-    getDiv('monster-char').style = `background-image: url("${enemyLocation}/base.png");`;
+    const userSpriteId = 'user-char';
+    const monsterSpriteId = 'monster-char';
+    getDiv(userSpriteId).style = `background-image: url("${userLocation}/base.png");`;
+    getDiv(monsterSpriteId).style = `background-image: url("${enemyLocation}/base.png");`;
     
     setTimeout(() => {
         alertMessage("Collect all the treasure");    

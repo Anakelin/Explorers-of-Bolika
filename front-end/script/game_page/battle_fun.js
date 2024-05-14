@@ -36,10 +36,16 @@ function startBattle() {
 }
 
 function endBattle(isWin) {
+    getDiv("curtain").classList.remove("active-curtain");
+    getDiv("battle-box").classList.remove("load");   
     if (isWin) {
-        getDiv("curtain").classList.remove("active-curtain");
         getDiv("explore-box").classList.remove("unload");
-        getDiv("battle-box").classList.remove("load");    
+    } else {
+        alertMessage("You lost !");
+        setTimeout(() => {
+            pageChange(loginUrl);
+        },1000)
+        
     }
 }
 
