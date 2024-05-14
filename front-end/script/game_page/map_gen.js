@@ -80,6 +80,7 @@ function addCell(size, i, j, type) {
                 }
             } else if (isClassPresent(div.id, enemClass)) {
                 setMainBackground();
+                alertMessage("You engaged an enemy !");
                 startBattle();
                 div.classList.remove(enemClass);
                 div.classList.add(roomClass);
