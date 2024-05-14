@@ -35,7 +35,7 @@ function showMove(id) {
 
 function addCell(size, i, j, type) {
     var div = document.createElement("div");
-    div.classList = "cell";
+    div.classList.add("cell");
     var border = 2;
     var cellSize = Math.floor(map.offsetHeight / size) - border;
     div.setAttribute("style", "width:" + cellSize + "px;height:" + cellSize + "px");
@@ -68,6 +68,7 @@ function addCell(size, i, j, type) {
             if (isClassPresent(div.id, hallClass)) {
                 setHallBackground();
                 if (isBattle()) {
+                    alertMessage("You engaged an enemy !");
                     startBattle();
                 }
             } else if (isClassPresent(div.id, roomClass)) {
@@ -87,9 +88,16 @@ function addCell(size, i, j, type) {
                 div.classList.add(roomClass);
                 if (isWin()) {
                     alertMessage("Return to the Entrance");    
+                } else {
+                    alertMessage("You found a treasure !");
                 }
                 //check if game as ended
+            } else if (isClassPresent(div.id, bonfireClass)) {
+                div.classList.remove(bonfireClass);
+                div.classList.add(roomClass);
+                alertMessage("You found some firewood !");    
             }
+
 
         }
 

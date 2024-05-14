@@ -18,8 +18,15 @@ const QUERIES =
         `
         SELECT s.name, s.filename, s.hpEnemy, s.enEnemy, s.hpUser, s.enUser, s.description, s.torchbearer as user
         FROM SkillHero as s
-        WHERE s.torchbearer = ? OR s.id = 1
-        ORDER by s.torchbearer;
+		WHERE s.torchbearer = ?
+        ORDER BY s.torchbearer
+        `
+    ,
+    SHARED_SKILL:
+        `
+        SELECT s.name, s.filename, s.description
+        FROM SkillShared as s
+        ORDER BY s.id
         `
     ,
     REQUEST_CURRENCY:

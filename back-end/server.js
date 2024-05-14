@@ -62,8 +62,9 @@ io.on('connection', (socket) => {
 
     socket.on('requestSkills', (charId) => {
         db.all(QUERIES.SKILL_DATA, charId, function (err, skills) {
-            console.log(charId,skills);
-            socket.emit('receiveSkills', skills);
+            db.all(QUERIES.SHARED_SKILL, function (err, shared) {
+                socket.emit('receiveSkills', { skills, shared });    
+            })
         });
     })
 });

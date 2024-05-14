@@ -26,8 +26,8 @@ const enemyAttack = [
 ];
 
 const enemyDefend = [
-    'translate3d(5%, 0, 0) scaleX(-1)',
-    'translate3d(-5%, 0, 0) scaleX(-1)'
+    'translate3d(0%, 0, 0) scaleX(-1)',
+    'translate3d(-15%, 0, 0) scaleX(-1)'
 ];
 
 let skillPlayed = false;

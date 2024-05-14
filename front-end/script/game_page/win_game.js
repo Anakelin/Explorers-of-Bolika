@@ -8,7 +8,7 @@ function isWin() {
 function winGame() {
     //  pop-up
     //  window.alert("You win!");
-    alertMessage("You Win !");
+    alertMessage("You succesfully looted the location!");
     //save data
     localStorage.setItem('isLoggedIn', true);
     setTimeout(() => {

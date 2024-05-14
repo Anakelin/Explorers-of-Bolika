@@ -20,7 +20,6 @@ const accountData = JSON.parse(localStorage.getItem('user'));
 const charsData = JSON.parse(localStorage.getItem('chars'));
 let maxCharId = charsData.length - 1;
 let charId = 0;
-const tempchar = charsData[charId];
 
 /**
  for (let i = 0; i < maxId; i++) {
@@ -98,18 +97,36 @@ function changeChar() {
 }
 
 socket.on('receiveSkills', (skillsData) => {
-    getDiv(`icon-${3}`).style = `background-image: url("../../resources/media/char/torchbearers/Shared/skills/${skillsData[0]['filename']}.png");`;
-    getDiv(`hp-value-${3}`).innerHTML = skillsData[0]['hpEnemy'];
-    getDiv(`en-value-${3}`).innerHTML = skillsData[0]['enUser'];
-    getDiv(`desc-${3}`).innerHTML = skillsData[0]['description'];
-    for (let i = 1; i < 4; i++) {
-        var j = i - 1;
-        getDiv(`icon-${j}`).style = `background-image: url("../../resources/media/char/torchbearers/${charsData[charId]['name']}/skills/${skillsData[i]['filename']}.png");`;
-        getDiv(`hp-value-${j}`).innerHTML = skillsData[i]['hpEnemy'];
-        getDiv(`en-value-${j}`).innerHTML = skillsData[i]['enUser'];
-        getDiv(`desc-${j}`).innerHTML = skillsData[i]['description'];
+    
+    let skillsNormal = skillsData['skills'];
+    
+    let skillsShared = skillsData['shared'];
+    let hpValue = Math.floor(charsData[charId]['maxHP'] / 4);
+    let enValue = Math.floor(charsData[charId]['maxEN'] / 2);
+    let quickRest = {  
+        name: skillsShared[0]['name'],
+        filename: skillsShared[0]['filename'],
+        hpEnemy: 0,
+        enEnemy: 0,
+        hpUser: hpValue,
+        enUser: enValue
     }
-    localStorage.setItem('skills', JSON.stringify(skillsData));
+    getDiv(`icon-${3}`).style = `background-image: url("../../resources/media/char/torchbearers/Shared/skills/${skillsShared[0]['filename']}.png");`;
+    getDiv(`hp-value-${3}`).innerHTML = hpValue;
+    getDiv(`en-value-${3}`).innerHTML = enValue;
+    getDiv(`desc-${3}`).innerHTML = skillsShared[0]['description'];
+    
+    for (let i = 0; i < 3; i++) {
+        getDiv(`icon-${i}`).style = `background-image: url("../../resources/media/char/torchbearers/${charsData[charId]['name']}/skills/${skillsNormal[i]['filename']}.png");`;
+        getDiv(`hp-value-${i}`).innerHTML = skillsNormal[i]['hpEnemy'] != 0 ? skillsNormal[i]['hpEnemy']: skillsNormal[i]['hpUser'];
+        getDiv(`en-value-${i}`).innerHTML = skillsNormal[i]['enUser'];
+        getDiv(`desc-${i}`).innerHTML = skillsNormal[i]['description'];
+    }
+    skillsNormal[3] = quickRest;
+    localStorage.setItem('skills', JSON.stringify(skillsNormal));
+    skillsShared.shift();
+    console.log(skillsShared);
+    localStorage.setItem('shared', JSON.stringify(skillsShared));
 })
 
 function locForw() {    
