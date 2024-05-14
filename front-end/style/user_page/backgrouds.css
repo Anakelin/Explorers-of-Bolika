@@ -1,5 +1,5 @@
 .Ruins {
-    background-image: url("../../resources/media/back/ruin_main.png");
+    background-image: url("../../resources/media/back/ruins_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
 }
@@ -11,19 +11,19 @@
 }
 
 .Woods {
-    background-image: url("../../resources/media/back/forest_main.png");
+    background-image: url("../../resources/media/back/woods_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
 }
 
 .Bog {
-    background-image: url("../../resources/media/back/swamp_main.png");
+    background-image: url("../../resources/media/back/bog_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 650ms infinite alternate-reverse ease-in-out;
 }
 
 .Fire {
-    background-image: url("../../resources/media/back/pyro_main.png");
+    background-image: url("../../resources/media/back/fire_main.png");
     transition: 300ms ease-out;
     animation: back-lighting 450ms infinite alternate-reverse ease-in-out;
 }

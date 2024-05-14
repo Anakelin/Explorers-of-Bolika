@@ -1,6 +1,7 @@
 var battlefieldId = "battlefield-box";
 var background = getDiv(battlefieldId);
-var backgroundLocation = "./resources/media/back/grave";
+var loc = localStorage.getItem('location');
+var backgroundLocation = `./resources/media/back/${loc.toLowerCase()}`;
 
 function setMainBackground() {
     let url = 'url(' + backgroundLocation + '_main.png)';

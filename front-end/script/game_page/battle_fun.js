@@ -12,8 +12,8 @@ const torchbearer = JSON.parse(localStorage.getItem('torchbearer'));
 
 const maxUserHp = torchbearer['maxHP'];
 const maxUserEn = torchbearer['maxEN'];
-const maxMonsterHp = 100;
-const maxMonsterEn = 50;
+const maxMonsterHp = 45;
+const maxMonsterEn = 10;
 
 var currentUserHp = maxUserHp;
 var currentUserEn = maxUserEn;
@@ -42,8 +42,9 @@ function endBattle(isWin) {
         getDiv("explore-box").classList.remove("unload");
     } else {
         alertMessage("You lost !");
+        localStorage.setItem('isLoggedIn',true);
         setTimeout(() => {
-            pageChange(loginUrl);
+            pageChange(userUrl);
         },1000)
         
     }
