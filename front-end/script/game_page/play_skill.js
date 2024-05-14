@@ -12,17 +12,17 @@ const userAttack = [
 ];
 
 const userDefend = [
-    'translate3d(-5%, 0, 0) scaleX(-1)',
-    'translate3d(5%, 0, 0) scaleX(-1)'
+    'translate3d(-5%, 0, 0)',
+    'translate3d(5%, 0, 0)'
 ];
 
 const enemyAttack = [
-    'translate3d(0, 0, 0)',
-    'translate3d(-100%, 0, 0)',
-    'translate3d(-150%, 0, 0)',
-    'translate3d(-300%, 0%, 0)',
-    'translate3d(-300%, -5%, 0)',
-    'translate3d(0, 0, 0)'
+    'translate3d(0, 0, 0) scaleX(-1)',
+    'translate3d(-100%, 0, 0) scaleX(-1)',
+    'translate3d(-150%, 0, 0) scaleX(-1)',
+    'translate3d(-300%, 0%, 0) scaleX(-1)',
+    'translate3d(-300%, -5%, 0) scaleX(-1)',
+    'translate3d(0, 0, 0) scaleX(-1)'
 ];
 
 const enemyDefend = [
