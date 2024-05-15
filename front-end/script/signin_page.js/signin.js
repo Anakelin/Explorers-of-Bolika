@@ -34,7 +34,7 @@ function trySignin() {
     
     error += ".";
     
-    if (error.length < 16) {
+    if (error.length == 0) {
         socket.emit('insertAccount', data);
         localStorage.setItem('isLoggedIn', true);
         pageChange(userUrl);
