@@ -12,7 +12,7 @@ function trySignin() {
     let error= "";
     if( data['username'].length == 0 ) {
         error += `no username`;
-    } else {
+    } else if (data['username'].length > textLength){
         error += `username too long(max${textLength - 1})`;
     }
     
@@ -34,11 +34,24 @@ function trySignin() {
     
     error += ".";
     
-    if (error.length == 0) {
-        socket.emit('insertAccount', data);
-        localStorage.setItem('isLoggedIn', true);
-        pageChange(userUrl);
+    if (error.length == 1) {
+        socket.emit('checkAccountExist', data);
     } else{
         alertMessage(error);
-    }   
+    }
+    
+    socket.on('userCreated', () => {
+        socket.emit('checkUser',data); 
+    });
+
+    socket.on('userAccess-success', (data) => {
+        localStorage.setItem('user', JSON.stringify(data[0]));
+        localStorage.setItem('chars', JSON.stringify(data[1]));
+        localStorage.setItem('isLoggedIn', true);
+        pageChange(userUrl);
+    })
+
+    socket.on('userAccess-failed', () => {
+        alertMessage("There is already a user with this username and/or email.");
+    })
 }

@@ -1,9 +1,21 @@
 const QUERIES = 
 {
+    CHECK_ACCOUNT_EXISTS:
+    `
+        SELECT
+            CASE
+                WHEN EXISTS (
+                    SELECT 1
+                    FROM Player
+                    WHERE username = ? OR email = ?
+                ) THEN 1
+                ELSE 0
+            END AS res;
+    `,
     INSERT_ACCOUNT:
         `
         INSERT INTO PLAYER (username,password,email)
-        VALUES (?,?,?)
+        VALUES (?,?,?);
         `
     ,
     ACCOUNT_DATA:
@@ -25,14 +37,14 @@ const QUERIES =
         SELECT s.name, s.filename, s.hpEnemy, s.enEnemy, s.hpUser, s.enUser, s.description, s.torchbearer as user
         FROM SkillHero as s
 		WHERE s.torchbearer = ?
-        ORDER BY s.torchbearer
+        ORDER BY s.torchbearer;
         `
     ,
     SHARED_SKILL:
         `
         SELECT s.name, s.filename, s.description
         FROM SkillShared as s
-        ORDER BY s.id
+        ORDER BY s.id;
         `
     ,
     REQUEST_CURRENCY:

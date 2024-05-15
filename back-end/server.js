@@ -52,10 +52,10 @@ io.on('connection', (socket) => {
             if (user.length != 0) {
                 db.all(QUERIES.TORCHBEARER_DATA, function (err, chars) {
                     console.log(chars);
-                    socket.emit('userLogin-success', [user[0], chars]);
+                    socket.emit('userAccess-success', [user[0], chars]);
                 });
             } else {
-                socket.emit('userLogin-failed');
+                socket.emit('userAccess-failed');
             }
         });
     });
@@ -68,8 +68,27 @@ io.on('connection', (socket) => {
         });
     })
 
-    socket.on('insertAccount', (data) => {
-        db.all(QUERIES.INSERT_ACCOUNT, data['username'], data['password'], data['email']);       
+    socket.on('checkAccountExist', (data) => {
+        db.all(QUERIES.CHECK_ACCOUNT_EXISTS, data['username'], data['email'], function (err, result) {
+            if (result[0]['res'] != 1) {
+                db.all(QUERIES.INSERT_ACCOUNT, data['username'], data['password'], data['email']);
+                socket.emit('userCreated');
+            } else {
+                socket.emit('userAccess-failed');
+            }
+        });
+        /**
+        db.all(QUERIES.CHECK_ACCOUNT_EXISTS, data['username'], data['email'], function (err, result) {
+            console.log(result);
+            /*
+            if (result['res'] != 1) {
+                db.all(QUERIES.INSERT_ACCOUNT, data['username'], data['password'], data['email']);
+                socket.emit('checkUser', data);
+            } else {
+                socket.emit('userAccess-failed');
+            }
+            });
+             */
     })
 });
 
