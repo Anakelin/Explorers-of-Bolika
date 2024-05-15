@@ -1,36 +1,44 @@
 const formId = 'form-sign-in';
 let formInfo = document.getElementById(formId);
-let out = [];
+const textLength = 17;
+const emailLength = 31;
 function trySignin() {
     
-    out[0] = formInfo.elements[0].value;
-    out[1] = formInfo.elements[1].value;
-    out[2] = formInfo.elements[2].value;
+    data = {
+        'username': formInfo.elements[0].value,
+        'email': formInfo.elements[1].value,
+        'password': formInfo.elements[2].value
+    }
+    let error= "";
+    if( data['username'].length == 0 ) {
+        error += `no username`;
+    } else {
+        error += `username too long(max${textLength - 1})`;
+    }
     
-    let error="Please insert ";
-    if( out[0].length == 0 ) {
-        error += "the username"
+    if (data['password'].length == 0) {
+        error += error.length == 0 ? `` : `, `;
+        error += "no password";
+    } else if (data['password'].length > textLength){
+        error += error.length == 0 ? `` : `, `;
+        error += `password too long(max${textLength - 1})`;
     }
-    if(out[1].length == 0) {
-        error += error.length < 15 ? "the email": " and the email";
+
+    if (data['email'].length == 0) {
+        error += error.length == 0 ? `` : `, `;
+        error += "no password";
+    } else if (data['email'].length > emailLength) {
+        error += error.length == 0 ? `` : `, `;
+        error += `email too long(max${emailLength - 1})`;
     }
-    if(out[2].length == 0) {
-        error += error.length < 15 ? "the password": " and the password";
-    }   
+    
     error += ".";
     
-    if(error.length < 16) {
-        socket.emit('checkUser',out);
+    if (error.length < 16) {
+        socket.emit('insertAccount', data);
+        localStorage.setItem('isLoggedIn', true);
+        pageChange(userUrl);
     } else{
         alertMessage(error);
-    }
-    
+    }   
 }
-
-socket.on('userSignin-success', function () {
-    pageChange(userUrl);
-})
-
-socket.on('userSignin-failed', function () {
-    window.alert("There is no user with this username and password.");
-})

@@ -1,5 +1,11 @@
 const QUERIES = 
 {
+    INSERT_ACCOUNT:
+        `
+        INSERT INTO PLAYER (username,password,email)
+        VALUES (?,?,?)
+        `
+    ,
     ACCOUNT_DATA:
         `
         SELECT username,email,currency,win,loss

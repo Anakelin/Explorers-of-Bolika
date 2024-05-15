@@ -48,7 +48,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('checkUser', (data) => {
-        db.all(QUERIES.ACCOUNT_DATA, data[0], data[1], function (err, user) {
+        db.all(QUERIES.ACCOUNT_DATA, data['username'], data['password'], function (err, user) {
             if (user.length != 0) {
                 db.all(QUERIES.TORCHBEARER_DATA, function (err, chars) {
                     console.log(chars);
@@ -66,6 +66,10 @@ io.on('connection', (socket) => {
                 socket.emit('receiveSkills', { skills, shared });    
             })
         });
+    })
+
+    socket.on('insertAccount', (data) => {
+        db.all(QUERIES.INSERT_ACCOUNT, data['username'], data['password'], data['email']);       
     })
 });
 

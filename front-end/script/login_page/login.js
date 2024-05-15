@@ -1,22 +1,23 @@
 const formId = 'form-log-in';
 let formInfo = document.getElementById(formId);
-let out = [];
 function tryLogin() {
     
-    out[0] = formInfo.elements[0].value;
-    out[1] = formInfo.elements[1].value;
+    data = {
+        'username': formInfo.elements[0].value,
+        'password': formInfo.elements[1].value,
+    }
     
     let error="Please insert ";
-    if( out[0].length == 0 ) {
+    if( data['username'].length == 0 ) {
         error += "the username"
     }
-    if(out[1].length == 0) {
+    if(data['password'].length == 0) {
         error += error.length < 15 ? "the password": " and the password";
     }   
     error += ".";
     
     if(error.length < 16) {
-        socket.emit('checkUser',out);
+        socket.emit('checkUser',data);
     } else{
         alertMessage(error);
     }
