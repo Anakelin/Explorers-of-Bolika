@@ -65,5 +65,11 @@ const QUERIES =
     ,
     REQUEST_REQUEST_DATA: ``,
     REQUEST_DELETE: ``,
+    REQUEST_TOP_PLAYERS:
+        `
+        SELECT p.username, p.currency, p.win, p.loss
+        FROM Player as p
+        ORDER BY p.win DESC, p.currency DESC, p.loss ASC
+        `
 };
 module.exports = QUERIES;

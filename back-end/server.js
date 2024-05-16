@@ -77,18 +77,12 @@ io.on('connection', (socket) => {
                 socket.emit('userAccess-failed');
             }
         });
-        /**
-        db.all(QUERIES.CHECK_ACCOUNT_EXISTS, data['username'], data['email'], function (err, result) {
-            console.log(result);
-            /*
-            if (result['res'] != 1) {
-                db.all(QUERIES.INSERT_ACCOUNT, data['username'], data['password'], data['email']);
-                socket.emit('checkUser', data);
-            } else {
-                socket.emit('userAccess-failed');
-            }
-            });
-             */
+    })
+
+    socket.on('requestTopUsers', (charId) => {
+        db.all(QUERIES.REQUEST_TOP_PLAYERS, charId, function (err, players) {
+            socket.emit('receiveTopUsers', players);
+        });
     })
 });
 
