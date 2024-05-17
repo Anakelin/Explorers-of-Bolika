@@ -83,8 +83,7 @@ function buildSkillsBonfire() {
     });
 }
 
-
-function startGame() {
+socket.on('gameStart', () => {
     createMap();
     //skills
     buildSkillsNormal();
@@ -94,27 +93,9 @@ function startGame() {
     const monsterSpriteId = 'monster-char';
     getDiv(userSpriteId).style = `background-image: url("${userLocation}/base.png");`;
     getDiv(monsterSpriteId).style = `background-image: url("${enemyLocation}/base.png");`;
-    
-    setTimeout(() => {
-        alertMessage("Collect all the treasure");    
-    },1000)
-    //resetChar();
-}
-/*
-var userSprites = [];
-var enemySprites = [];
-const spritesUsed = 6;
-function preload() {
-    for (var i = 0; i < arguments.length; i++) {
 
-        if (userSprites.length < spritesUsed) {
-            userSprites[i] = preload.arguments[i];
-        } else {
-            enemySprites[i] = preload.arguments[i];
-        }
-    }
-}
- */
-//console.log(localStorage.getItem("IsLogged"));
-window.onload = startGame;    
+    setTimeout(() => {
+        alertMessage("Collect all the treasure");
+    }, 1000)
+});
 

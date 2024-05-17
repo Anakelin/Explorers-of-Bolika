@@ -48,10 +48,9 @@ io.on('connection', (socket) => {
     });
 
     socket.on('checkUser', (data) => {
-        db.all(QUERIES.ACCOUNT_DATA, data['username'], data['password'], function (err, user) {
+        db.all(QUERIES.REQUEST_ACCOUNT_DATA, data['username'], data['password'], function (err, user) {
             if (user.length != 0) {
                 db.all(QUERIES.TORCHBEARER_DATA, function (err, chars) {
-                    console.log(chars);
                     socket.emit('userAccess-success', [user[0], chars]);
                 });
             } else {
@@ -84,6 +83,31 @@ io.on('connection', (socket) => {
             socket.emit('receiveTopUsers', players);
         });
     })
+
+    socket.on('updateAccountEndBattle', (data) => {
+        console.log(data);
+        db.all(QUERIES.UPDATE_ACCOUNT_END_EXPLORE,
+            data['currency'], data['win'], data['loss'],
+            data['username'], data['password'],
+            function (err, players) {
+                socket.emit('updateAccountEndBattleSuccess');
+            }
+        );
+    });
+
+    socket.on('requestMap', (id) => {
+        db.all(QUERIES.REQUEST_MAP,
+            id,
+            function (err, map) {
+                //console.log(map);
+                socket.emit('receiveMap',map);
+            }
+        );
+    });
+
+    socket.on('gameCanStart', () => {
+        socket.emit('gameStart');
+    });
 });
 
 // Start the server

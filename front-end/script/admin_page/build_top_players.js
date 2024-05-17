@@ -25,7 +25,6 @@ const defaultName = "Martin";
 var playerList = document.getElementById("top-players");
 
 socket.on("receiveTopUsers", (players) => {
-    console.log(players,players.length);
     for (let i = 0; i < players.length; i++) {
         playerList.append(buildPlayer(i, players[i])); 
     }

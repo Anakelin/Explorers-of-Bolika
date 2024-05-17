@@ -25,6 +25,9 @@ const maxUserWidthEn = userEn.offsetWidth;
 const maxMonsterWidthHp = monsterHp.offsetWidth;
 const maxMonsterWidthEn = monsterEn.offsetWidth;
 
+var user = JSON.parse(localStorage.getItem('user'));
+console.log(user);
+
 function isBattle() {
     return Math.floor(Math.random() * 4) % 3 == 0;
 }
@@ -41,14 +44,19 @@ function endBattle(isWin) {
     if (isWin) {
         getDiv("explore-box").classList.remove("unload");
     } else {
+        user['loss'] = user['loss'] != 999 ? user['loss'] + 1 : user['loss'];
+        socket.emit("updateAccountEndBattle", user);
         alertMessage("You lost !");
-        localStorage.setItem('isLoggedIn',true);
-        setTimeout(() => {
-            pageChange(userUrl);
-        },1000)
-        
+        localStorage.setItem('isLoggedIn',true);        
     }
 }
+
+socket.on('updateAccountEndBattleSuccess', (user) => {
+    localStorage.setItem('user', JSON.stringify(user));        
+    setTimeout(() => {
+        pageChange(userUrl);
+    }, 1200)
+});
 
 function playHp(value, target) {
     if (target == chars.player) {

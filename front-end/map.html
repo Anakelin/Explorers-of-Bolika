@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Map Creation</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                user-select: none;
+            }
+
+            td {
+                width: 30px;
+                height: 30px;
+                border: 1px solid black;
+                cursor: pointer;
+                text-align: center;
+            }
+
+            button {
+                margin-top: 10px;
+                padding: 10px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <table id="grid">
+            <tbody>
+            </tbody>
+        </table>
+
+        <button id="convertButton">Convert to JS Object</button>
+
+        <script>
+            const grid = document.getElementById('grid');
+            const convertButton = document.getElementById('convertButton');
+
+            for (let i = 0; i < 10; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < 10; j++) {
+                    const cell = document.createElement('td');
+
+                    cell.style.backgroundColor = 'seagreen';
+                    cell.innerHTML = 0;
+                    cell.addEventListener('click', () => {
+                        toggleColor(cell);
+                    });
+                    row.appendChild(cell);
+                }
+                grid.appendChild(row);
+            }
+
+            function toggleColor(cell) {
+                var content = cell.innerHTML * 1;
+                cell.innerHTML = content < 6 ? content + 1 : 0;
+            }
+
+            function createGrid() {
+                const tableData = [];
+                const rows = grid.getElementsByTagName('tr');
+                // Iterate over each row
+                for (let i = 0; i < rows.length; i++) {
+                    const rowData = [];
+                    const cells = rows[i].getElementsByTagName('td');
+                    for (let j = 0; j < cells.length; j++) {
+                        rowData.push(parseInt(cells[j].innerHTML));
+                    }
+                    tableData.push(rowData);
+                }
+                console.log(JSON.stringify(tableData));
+                window.alert(JSON.stringify(tableData));
+            }
+            convertButton.addEventListener('click', createGrid);
+        </script>
+
+    </body>
+
+</html>

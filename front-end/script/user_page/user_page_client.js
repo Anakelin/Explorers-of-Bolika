@@ -15,7 +15,7 @@ const diffHard = 1.5;
 
 const backId = "background";
 const locId = "loc-name";
-
+console.log(JSON.parse(localStorage.getItem('user')));
 const accountData = JSON.parse(localStorage.getItem('user'));
 const charsData = JSON.parse(localStorage.getItem('chars'));
 let maxCharId = charsData.length - 1;
