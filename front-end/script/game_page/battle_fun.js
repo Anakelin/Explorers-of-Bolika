@@ -26,7 +26,6 @@ const maxMonsterWidthHp = monsterHp.offsetWidth;
 const maxMonsterWidthEn = monsterEn.offsetWidth;
 
 var user = JSON.parse(localStorage.getItem('user'));
-console.log(user);
 
 function isBattle() {
     return Math.floor(Math.random() * 4) % 3 == 0;

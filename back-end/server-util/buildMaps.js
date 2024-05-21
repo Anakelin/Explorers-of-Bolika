@@ -1,12 +1,10 @@
 const express = require('express');
 const http = require('http');
 const { Server } = require("socket.io");
-//const serverCmd = require('./server-util/server_functions.cjs');
 const path = require('path');
 
 const SQLITE3 = require('sqlite3').verbose();
 const DBLOCATION = path.join(__dirname, '..', 'data', 'test.db');
-console.log((DBLOCATION));
 const QUERIES = require('./queries.cjs');
 
 const app = express();
@@ -30,7 +28,6 @@ const m = {
  */
 // Example JavaScript object
 
-//console.log(JSON.stringify(maps));
 // Convert the JavaScript object to a JSON string
 let db = new SQLITE3.Database(DBLOCATION, SQLITE3.OPEN_READWRITE, (err) => {
     if (err) {
@@ -40,15 +37,10 @@ let db = new SQLITE3.Database(DBLOCATION, SQLITE3.OPEN_READWRITE, (err) => {
     }
 });
 
-//const jsonData = JSON.stringify(maps, null, 2); // The second argument (null) and third argument (2) are for formatting
 const max10 = 10;
 var locations = Object.keys(maps);
-//console.log(maps[locations[0]]);
 var users = Object.keys(maps[locations[0]]).length;
 var maxUsers = users < max10 ? users : max10;
-
-
-//var map = maps[locations[0]][`ruins${i}`];
 
 db.all(QUERIES.DROP_ROWS_TABLE);
 db.all(QUERIES.CREATE_ROWS_TABLE);
@@ -71,10 +63,7 @@ db.serialize(() => {
         }
     }
 
-    // Finalize the statement
     stmt.finalize();
-
-    // Commit the transaction
     db.run("COMMIT", (err) => {
         if (err) {
             console.error(err.message);

@@ -38,7 +38,6 @@ function buildList() {
 }
 
 function buildPlayer(position, data) {
-    console.log(data);
     var player = document.createElement("div");
     player.classList.add("player");
     player.appendChild(

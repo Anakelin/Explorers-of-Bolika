@@ -47,7 +47,6 @@ function buildSkillsNormal() {
         });
         getDiv(`sk${i}`).addEventListener("click", function () {
             let type = skills[i]['filename'].includes('heal') ? skillType.heal : skillType.attack;
-            console.log(skills[i]['filename'], skills[i]['filename'].includes('heal'));
             playSkill(
                 type,
                 [

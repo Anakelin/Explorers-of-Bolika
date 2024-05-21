@@ -46,10 +46,14 @@ var generatedMap = [
 ];
 */
 var generatedMap = [];
-socket.emit('requestMap', 15);
+var mapDifficulty = localStorage.getItem('diff');
+var locationAll = JSON.parse(localStorage.getItem('locationAll'));
+var locOffset = locationAll.indexOf(loc);
+var diffOffset = mapDifficulty < 1.0 ? 1 : mapDifficulty == 1.0 ? 2 : 3;
+var mapId = locOffset * 3 + diffOffset;
+socket.emit('requestMap', mapId);
 
 socket.on('receiveMap', (data) => {
-    console.log("received");
     var keys = Object.keys(data[0]);
     
     for (let i = 0; i < keys.length; i++) {

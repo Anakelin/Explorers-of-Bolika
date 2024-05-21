@@ -6,7 +6,6 @@ socket.emit('requestReport');
 
 socket.on('receiveReport', (query) => {
     let list = getDiv("request-list");
-    console.log(list);
     query.forEach(function (record) {
         
         let desc = "";

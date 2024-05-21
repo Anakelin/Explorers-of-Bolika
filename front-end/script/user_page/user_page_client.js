@@ -7,33 +7,18 @@ if (localStorage.getItem('isLoggedIn') === null) {
 }
 
 let backgrounds = ["Grave", "Ruins", "Woods", "Bog", "Fire"];
+localStorage.setItem('locationAll', JSON.stringify(backgrounds));
 let difId = "diff-name";
-
 const diffEasy = 0.75;
 const diffNormal = 1.0;
 const diffHard = 1.5;
 
 const backId = "background";
 const locId = "loc-name";
-console.log(JSON.parse(localStorage.getItem('user')));
 const accountData = JSON.parse(localStorage.getItem('user'));
 const charsData = JSON.parse(localStorage.getItem('chars'));
 let maxCharId = charsData.length - 1;
 let charId = 0;
-
-/**
- for (let i = 0; i < maxId; i++) {
-        for (let j = 1; j < skills.length; j++) {
-            preload(
-                `./resources/media/char/torchbearers/${charsData[i]['name']}/skills/${skills[j]['filename']}.png`
-            );
-        }
-    }
-    preload(
-        `./resources/media/char/torchbearers/Shared/skills/${skills[j]['filename']}.png`
-    );
- */
-
 
 // set data from database
 getDiv('account-info-name').innerHTML = accountData['username'];
@@ -48,25 +33,9 @@ changeChar();
 locForw();
 locBack();
 getDiv(difId).innerHTML = "Normal";
-
-// preload images 
+localStorage.setItem('diff', diffNormal);
 var images = [];
-/*
-for (let i = 0; i < maxId; i++) {
-    images[i] = new Image();
-    preload(
-        images[i].src = `./resources/media/char/torchbearers/${charsData[i]['name']}/base.png`
-    );
-}
 
-preload(
-    images[maxId].src = `./resources/media/back/forest_main.png`,
-    images[maxId + 1].src = `./resources/media/back/grave_main.png`,
-    images[maxId + 2].src = `./resources/media/back/pyro_main.png`,
-    images[maxId + 3].src = `./resources/media/back/ruin_main.png`,
-    images[maxId + 4].src = `./resources/media/back/swamp_main.png`,
-);
-*/
 function startGame() {
     localStorage.setItem('isGameStarted', true);
     localStorage.setItem('torchbearer', JSON.stringify(charsData[charId]));
@@ -124,8 +93,9 @@ socket.on('receiveSkills', (skillsData) => {
     }
     skillsNormal[3] = quickRest;
     localStorage.setItem('skills', JSON.stringify(skillsNormal));
+    
+    // Shift to remove quick rest
     skillsShared.shift();
-    console.log(skillsShared);
     localStorage.setItem('shared', JSON.stringify(skillsShared));
 })
 
@@ -180,7 +150,6 @@ function diffForw() {
             localStorage.setItem('diff', diffEasy);
             break;
     }
-    //do something
 }
 
 function diffBack() {
@@ -200,5 +169,4 @@ function diffBack() {
             localStorage.setItem('diff', diffNormal);
             break;
     }
-    //do something
 }

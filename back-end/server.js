@@ -85,7 +85,6 @@ io.on('connection', (socket) => {
     })
 
     socket.on('updateAccountEndBattle', (data) => {
-        console.log(data);
         db.all(QUERIES.UPDATE_ACCOUNT_END_EXPLORE,
             data['currency'], data['win'], data['loss'],
             data['username'], data['password'],
@@ -99,7 +98,6 @@ io.on('connection', (socket) => {
         db.all(QUERIES.REQUEST_MAP,
             id,
             function (err, map) {
-                //console.log(map);
                 socket.emit('receiveMap',map);
             }
         );
