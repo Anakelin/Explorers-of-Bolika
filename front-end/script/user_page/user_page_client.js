@@ -57,6 +57,7 @@ function changeChar() {
     let charLocation = `background-image: url("../../resources/media/char/torchbearers/${charsData[charId]['name']}/base.png");`;
     getDiv('char-info-img').style = charLocation;
     getDiv('char-info-name').innerHTML = "The " + charsData[charId]['name'];
+    getDiv('char-info-lv').innerHTML = "1";
     getDiv('char-info-hp').innerHTML = charsData[charId]['maxHP'];
     getDiv('char-info-en').innerHTML = charsData[charId]['maxEN'];
     getDiv('char-info-mov').innerHTML = charsData[charId]['move'];
@@ -83,14 +84,16 @@ socket.on('receiveSkills', (skillsData) => {
         description: skillsShared[0]['description']
     }
     getDiv(`icon-${3}`).style = `background-image: url("../../resources/media/char/torchbearers/Shared/skills/${skillsShared[0]['filename']}.png");`;
-    getDiv(`hp-value-${3}`).innerHTML = hpValue;
-    getDiv(`en-value-${3}`).innerHTML = enValue;
+    getDiv(`hp-value-${3}`).innerHTML = Math.abs(hpValue);
+    getDiv(`en-value-${3}`).innerHTML = Math.abs(enValue);
     getDiv(`desc-${3}`).innerHTML = quickRest['description'];
     
     for (let i = 0; i < 3; i++) {
         getDiv(`icon-${i}`).style = `background-image: url("../../resources/media/char/torchbearers/${charsData[charId]['name']}/skills/${skillsNormal[i]['filename']}.png");`;
-        getDiv(`hp-value-${i}`).innerHTML = skillsNormal[i]['hpEnemy'] != 0 ? skillsNormal[i]['hpEnemy']: skillsNormal[i]['hpUser'];
-        getDiv(`en-value-${i}`).innerHTML = skillsNormal[i]['enUser'];
+        getDiv(`hp-value-${i}`).innerHTML = skillsNormal[i]['hpEnemy'] != 0 ?
+            Math.abs(skillsNormal[i]['hpEnemy']) :
+            Math.abs(skillsNormal[i]['hpUser']);
+        getDiv(`en-value-${i}`).innerHTML = Math.abs(skillsNormal[i]['enUser']);
         getDiv(`desc-${i}`).innerHTML = skillsNormal[i]['description'];
     }
     skillsNormal[3] = quickRest;

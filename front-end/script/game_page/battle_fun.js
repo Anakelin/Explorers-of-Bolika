@@ -42,8 +42,9 @@ function startBattle(type) {
     }
     var randomMonsterId = Math.floor(Math.random() * 2);
     monster = monsters[randomMonsterId];
-    maxMonsterHp = monster['maxHP'];
-    maxMonsterEn = monster['maxEn'];
+    var diff = parseFloat(localStorage.getItem('diff'));
+    maxMonsterHp = monster['maxHP'] + monster['maxHP'] * diff;
+    maxMonsterEn = monster['maxEn'] + monster['maxEn'] * diff;
     currentMonsterHp = maxMonsterHp;
     currentMonsterEn = maxMonsterEn;
     enemyLocation = `./resources/media/char/enemy/${monster['location']}/${monster['filename']}`;    
@@ -68,7 +69,7 @@ function endBattle(isWin) {
         updateMetaData(money, shards);
     } else {
         user['loss'] = user['loss'] != DATALIMIT ? user['loss'] + 1 : user['loss'];
-        user['currency'] = user['currency'] / 2;
+        user['currency'] = Math.floor(user['currency'] - (user['currency'] / 4));
         socket.emit("updateAccountEndBattle", user);
         alertMessage("You lost !");
         
