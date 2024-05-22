@@ -2,7 +2,7 @@ var userHp = getDiv("user-hp-bar");
 var userEn = getDiv("user-en-bar");
 var monsterHp = getDiv("monster-hp-bar");
 var monsterEn = getDiv("monster-en-bar");
-
+const DATALIMIT = 1000;
 const chars = {
     player: "player",
     monster: "monster"
@@ -42,8 +42,15 @@ function endBattle(isWin) {
     getDiv("battle-box").classList.remove("load");   
     if (isWin) {
         getDiv("explore-box").classList.remove("unload");
+        var money = parseInt(localStorage.getItem('explore-meta-money'));
+        var monsterMoney = (maxMonsterHp + maxMonsterEn) / 10 * mapDifficulty;
+        var shards = parseInt(localStorage.getItem('explore-meta-shards'));
+        var monsterShards = (maxMonsterHp + maxMonsterEn) / 2 * (2 / mapDifficulty);
+        shards += Math.floor(monsterShards);
+        money += Math.floor(monsterMoney) + 5;
+        updateMetaData(money, shards);
     } else {
-        user['loss'] = user['loss'] != 999 ? user['loss'] + 1 : user['loss'];
+        user['loss'] = user['loss'] != DATALIMIT ? user['loss'] + 1 : user['loss'];
         socket.emit("updateAccountEndBattle", user);
         alertMessage("You lost !");
         localStorage.setItem('isLoggedIn',true);        

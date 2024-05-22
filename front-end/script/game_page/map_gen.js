@@ -92,11 +92,17 @@ function addCell(size, i, j, type) {
                 } else {
                     alertMessage("You found a treasure !");
                 }
-                //check if game as ended
+
+                // set money
+                var loot = 20;
+                var currentLoot = parseInt(localStorage.getItem('explore-meta-money'));
+                currentLoot += loot;
+                updateMetaMoney(currentLoot);
+                
             } else if (isClassPresent(div.id, bonfireClass)) {
                 div.classList.remove(bonfireClass);
                 div.classList.add(roomClass);
-                alertMessage("You found some firewood !");    
+                startRest();
             }
 
 

@@ -151,7 +151,62 @@
     color: white;
 }
 
+.rest-fire-container {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    height: 40%;
+    width: 50%;
+    z-index: 10;
+}
 
+.rest-fire {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../resources/media/pageres/rest_fire.png");
+    background-size: 100% 100%;
+}
+
+.meta-currency-container {
+    position: absolute;
+    left: 1%;
+    height: fit-content;
+    width: fit-content;
+    z-index: 20;
+}
+
+.meta-currency-container > div{
+    font-size: 1.5vw;
+}
+
+.meta-currency.money::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 2vw;
+    aspect-ratio: 1;
+    background: url("../../resources/media/pageres/meta-money.png");
+    background-size: cover;
+}
+
+.meta-currency.shards::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 2vw;
+    aspect-ratio: 1;
+    background: url("../../resources/media/pageres/meta-shards.png");
+    background-size: cover;
+}
+
+.user-info.level {
+    position: relative;
+    left: 15%;
+}
+.user-info.level::before {
+    content: "LV ";
+    font-size: 2vw;
+}
 
 .unload {
     animation: unload-in-topb 750ms forwards;

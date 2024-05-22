@@ -8,11 +8,14 @@ function isWin() {
 function winGame() {
     //  pop-up
     //  window.alert("You win!");
-    alertMessage("You succesfully looted the location!");
+    
     //save data
+    var gainedCurrency = parseInt(localStorage.getItem('explore-meta-money'));
     localStorage.setItem('isLoggedIn', true);
-    user['win'] = user['win'] != 999 ? user['win'] + 1 : user['win'];
-    user['currency'] = user['loss'] + 10 < 999 ? user['currency'] + 10 : 999;
+    user['win'] = user['win'] != DATALIMIT ? user['win'] + 1 : user['win'];
+    user['currency'] = user['currency'] + gainedCurrency < DATALIMIT ? user['currency'] + gainedCurrency : DATALIMIT;
+
+    alertMessage("You succesfully looted the location!");
     socket.emit("updateAccountEndBattle", user);
 }
 

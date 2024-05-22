@@ -24,6 +24,11 @@
   <div class="pop-up-alert">
   </div>
   <div class="main-box">
+    <div class="meta-currency-container">
+      <div id="meta-currency-money" class="meta-currency money">0</div>
+      <div id="meta-currency-shards" class="meta-currency shards">0</div>
+      <div id="user-info-level" class="user-info level">1</div>
+    </div>
     <div class="title-box">
       <label class="title-box-text">Exploration</label>
     </div>
@@ -59,6 +64,9 @@
           </div>
           <div id="monster-char" class="char"></div>
         </div>
+        <div id="rest-fire-box" class="rest-fire-container unload">
+          <div id="rest-fire" class="rest-fire"></div>
+        </div>
       </div>
       <!--box for the skills that can be used in battle-->
       <div class="skill-box">
@@ -87,12 +95,15 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="./script/socket/playerCount.js"></script>
   <script src="./script/game_page/dynamic_back.js"></script>
+  <script src="./script/game_page/update_meta_data.js"></script>
   <script src="./script/game_page/battle_fun.js"></script>
+  <script src="./script/game_page/rest_fun.js"></script>
   <script src="./script/game_page/win_game.js"></script>
   <script src="./script/game_page/map_comp.js"></script>
   <script src="./script/game_page/map_gen.js"></script>
   <script src="./script/game_page/move_gen.js"></script>
   <script src="./script/game_page/play_skill.js"></script>
+  <script src="./script/game_page/build_skills.js"></script>
   <script src="./script/game_page/start_game.js"></script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+//clear all data
+localStorage.clear();
+
 const formId = 'form-log-in';
 let formInfo = document.getElementById(formId);
 const textLength = 17;

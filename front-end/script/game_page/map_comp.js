@@ -65,7 +65,3 @@ socket.on('receiveMap', (data) => {
     }
     socket.emit('gameCanStart');
 });
-
-//var map = localStorage.getItem('map');
-
-console.log(map);

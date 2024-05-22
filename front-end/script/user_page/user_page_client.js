@@ -39,6 +39,7 @@ var images = [];
 function startGame() {
     localStorage.setItem('isGameStarted', true);
     localStorage.setItem('torchbearer', JSON.stringify(charsData[charId]));
+    localStorage.setItem('explore-meta-money', accountData['currency']);
     pageChange("./game_page.html");
 }
 
@@ -78,12 +79,13 @@ socket.on('receiveSkills', (skillsData) => {
         hpEnemy: 0,
         enEnemy: 0,
         hpUser: hpValue,
-        enUser: enValue
+        enUser: enValue,
+        description: skillsShared[0]['description']
     }
     getDiv(`icon-${3}`).style = `background-image: url("../../resources/media/char/torchbearers/Shared/skills/${skillsShared[0]['filename']}.png");`;
     getDiv(`hp-value-${3}`).innerHTML = hpValue;
     getDiv(`en-value-${3}`).innerHTML = enValue;
-    getDiv(`desc-${3}`).innerHTML = skillsShared[0]['description'];
+    getDiv(`desc-${3}`).innerHTML = quickRest['description'];
     
     for (let i = 0; i < 3; i++) {
         getDiv(`icon-${i}`).style = `background-image: url("../../resources/media/char/torchbearers/${charsData[charId]['name']}/skills/${skillsNormal[i]['filename']}.png");`;
