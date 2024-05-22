@@ -31,10 +31,12 @@ const enemyDefend = [
 ];
 
 let skillPlayed = false;
+let isDead = false;
 
 function playSkill(type, values, skillUserLocation, targetLocation) {
     var isRoundDone = parseInt(localStorage.getItem("isRoundDone"));
     if (isRoundDone == 1) {
+        isDead = false;
         playBarsUser(values);
         if (skillPlayed) {
             localStorage.setItem("isRoundDone", 0);
@@ -42,15 +44,19 @@ function playSkill(type, values, skillUserLocation, targetLocation) {
             var values = [monster['enemyHp'], monster['enemyEn'], monster['userHp'], monster['userEn']]
             setTimeout(() => {
                 skillPlayed = false;
-                playBarsMonster(values);
-                if (skillPlayed) {
-                    playAnimation(skillType.attack, targetLocation, skillUserLocation);
-                } else {
-                    playAnimation(skillType.heal, targetLocation, skillUserLocation);
+                if (!isDead) {
+                    playBarsMonster(values);
+                    if (skillPlayed) {
+
+                        playAnimation(skillType.attack, targetLocation, skillUserLocation);
+                    } else {
+                        playAnimation(skillType.heal, targetLocation, skillUserLocation);
+                    }
+                    setTimeout(() => {
+                        localStorage.setItem("isRoundDone", 1);
+                    }, ANITIME);
                 }
-                setTimeout(() => {
-                    localStorage.setItem("isRoundDone", 1);
-                },ANITIME);
+                
             }, ANITIME);
             
         }    
@@ -82,7 +88,6 @@ function playAnimation(type, skillUserLocation, targetLocation) {
             transform: skillUserAnimation,
             easing: ['ease-in', 'ease-out'],
         }, ANITIME);
-        console.log(targetLocation);
         target.style = `background-image: url("${targetLocation}/defend.png");`;
         target.animate({
             transform: targetAnimation,
@@ -108,11 +113,10 @@ function playBarsUser(values) {
         playEn(values[3], chars.player);
 
         if (currentMonsterHp <= 0) {
+            isDead = true;
             setTimeout(function () {
+                resetMonster();
                 endBattle(true);
-                setTimeout(function () {
-                    resetMonster();
-                }, RESETTIME);
             }, DEATHTIME)
 
 
