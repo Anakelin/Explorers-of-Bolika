@@ -12,9 +12,10 @@ const dungeon = localStorage.getItem('location');
 const skills = JSON.parse(localStorage.getItem('skills'));
 const skillsBonfire = JSON.parse(localStorage.getItem('shared'));
 const diff = localStorage.getItem('diff');
+const userSpriteId = 'user-char';
+const monsterSpriteId = 'monster-char';
 
 var userLocation = `./resources/media/char/torchbearers/${torchbearer['name']}/`;
-var enemyLocation = `./resources/media/char/enemy/Woods/Duel_Dancer/`;    
 
 localStorage.setItem('hasActed', false);
 
@@ -23,11 +24,8 @@ socket.on('gameStart', () => {
     //skills
     buildSkillsNormal();
     //chars
-    const userSpriteId = 'user-char';
-    const monsterSpriteId = 'monster-char';
     getDiv(userSpriteId).style = `background-image: url("${userLocation}/base.png");`;
-    getDiv(monsterSpriteId).style = `background-image: url("${enemyLocation}/base.png");`;
-
+    
     // Initialize meta data
     var money = Math.floor(
         parseInt(localStorage.getItem('explore-meta-money')) / 2

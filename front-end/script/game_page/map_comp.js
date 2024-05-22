@@ -63,5 +63,18 @@ socket.on('receiveMap', (data) => {
         }
         generatedMap[i] = row;
     }
+    var mapDifficulty = localStorage.getItem('diff');
+    var diffValue = mapDifficulty < 1.0 ? 0 : mapDifficulty == 1.0 ? 1 : 2;
+    socket.emit('requestMonsters', {
+        'location': loc,
+        'difficulty': diffValue
+    });
+});
+
+socket.on('receiveMonsters', (data) => {
+    var hallMonsters = { 0: data[0], 1: data[1] };
+    var roomMonsters = { 0: data[2], 1: data[3] };
+    localStorage.setItem('monstersHall', JSON.stringify(hallMonsters));
+    localStorage.setItem('monstersRoom', JSON.stringify(roomMonsters));
     socket.emit('gameCanStart');
 });

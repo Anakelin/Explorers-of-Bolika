@@ -69,7 +69,7 @@ function addCell(size, i, j, type) {
                 setHallBackground();
                 if (isBattle()) {
                     alertMessage("You engaged an enemy !");
-                    startBattle();
+                    startBattle("Hall");
                 }
             } else if (isClassPresent(div.id, roomClass)) {
                 setMainBackground();
@@ -81,7 +81,7 @@ function addCell(size, i, j, type) {
             } else if (isClassPresent(div.id, enemClass)) {
                 setMainBackground();
                 alertMessage("You engaged an enemy !");
-                startBattle();
+                startBattle("Room");
                 div.classList.remove(enemClass);
                 div.classList.add(roomClass);
             } else if (isClassPresent(div.id, treasureClass)) {
@@ -104,8 +104,6 @@ function addCell(size, i, j, type) {
                 div.classList.add(roomClass);
                 startRest();
             }
-
-
         }
 
     })

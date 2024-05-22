@@ -9,16 +9,17 @@ const chars = {
 };
 
 const torchbearer = JSON.parse(localStorage.getItem('torchbearer'));
-
-const maxUserHp = torchbearer['maxHP'];
-const maxUserEn = torchbearer['maxEN'];
-const maxMonsterHp = 45;
-const maxMonsterEn = 10;
-
+var maxUserHp = torchbearer['maxHP'];
+var maxUserEn = torchbearer['maxEN'];
 var currentUserHp = maxUserHp;
 var currentUserEn = maxUserEn;
-var currentMonsterHp = maxMonsterHp;
-var currentMonsterEn = maxUserEn;
+
+var enemyLocation;
+var monster;
+var maxMonsterHp = 0;
+var maxMonsterEn = 0;
+var currentMonsterHp = 0;
+var currentMonsterEn = 0;
 
 const maxUserWidthHp = userHp.offsetWidth;
 const maxUserWidthEn = userEn.offsetWidth;
@@ -31,7 +32,23 @@ function isBattle() {
     return Math.floor(Math.random() * 4) % 3 == 0;
 }
 
-function startBattle() {
+function startBattle(type) {
+    localStorage.setItem("isRoundDone", 1);
+    var monsters;
+    if (type === "Hall") {
+        monsters = JSON.parse(localStorage.getItem('monstersHall'));
+    } else {
+        monsters = JSON.parse(localStorage.getItem('monstersRoom'));
+    }
+    var randomMonsterId = Math.floor(Math.random() * 2);
+    monster = monsters[randomMonsterId];
+    maxMonsterHp = monster['maxHP'];
+    maxMonsterEn = monster['maxEn'];
+    currentMonsterHp = maxMonsterHp;
+    currentMonsterEn = maxUserEn;
+    enemyLocation = `./resources/media/char/enemy/${monster['location']}/${monster['filename']}`;    
+    getDiv(monsterSpriteId).style = `background-image: url("${enemyLocation}/base.png");`;
+    
     getDiv("explore-box").classList.add("unload");
     getDiv("battle-box").classList.add("load");
     getDiv("curtain").classList.add("active-curtain");
@@ -66,7 +83,8 @@ socket.on('updateAccountEndBattleSuccess', (user) => {
 
 function playHp(value, target) {
     if (target == chars.player) {
-        currentUserHp = currentUserHp + value > maxUserHp ? maxUserHp: currentUserHp+value;
+        currentUserHp = currentUserHp + value > maxUserHp ? maxUserHp : currentUserHp + value;
+        currentUserHp = currentUserHp <= 0 ? 0 : currentUserHp;
         var currentWidth = currentUserHp * maxUserWidthHp / maxUserHp;
         if (currentWidth <= 0) {
             userHp.style.width = "0px";
@@ -77,6 +95,7 @@ function playHp(value, target) {
         }
     } else {
         currentMonsterHp = currentMonsterHp + value > maxMonsterHp ? maxMonsterHp : currentMonsterHp + value;
+        currentMonsterHp = currentMonsterHp <= 0 ? 0 : currentMonsterHp;
         // maxWidth : max = width : currentVal -> width = currentVal * maxWidth / max
         var currentWidth = currentMonsterHp * maxMonsterWidthHp / maxMonsterHp;
         if (currentWidth <= 0) {
@@ -92,7 +111,7 @@ function playHp(value, target) {
 function playEn(value, target) {
     if (target == chars.player) {
         currentUserEn = currentUserEn + value > maxUserEn ? maxUserEn : currentUserEn + value;
-        // maxWidth : max = width : currentVal -> width = currentVal * maxWidth / max
+        currentUserEn = currentUserEn <= 0 ? 0 : currentUserEn;
         var currentWidth = currentUserEn * maxUserWidthEn / maxUserEn;
         if (currentWidth <= 0) {
             userEn.style.width = "0px";
@@ -103,7 +122,8 @@ function playEn(value, target) {
         }
     } else {
         currentMonsterEn = currentMonsterEn + value > maxMonsterEn ? maxMonsterEn : currentMonsterEn + value;
-        // maxWidth : max = width : currentVal -> width = currentVal * maxWidth / max
+        currentMonsterEn = currentMonsterEn <= 0 ? 0 : currentMonsterEn;
+        
         var currentWidth = currentMonsterEn * maxMonsterWidthEn / maxMonsterEn;
         if (currentWidth <= 0) {
             monsterEn.style.width = "0px";

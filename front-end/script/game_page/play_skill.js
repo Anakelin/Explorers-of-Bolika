@@ -32,13 +32,26 @@ const enemyDefend = [
 
 let skillPlayed = false;
 
-function playSkill(type,values,skillUserLocation,targetLocation) {
-    //set value for monster
-    playBars(values);
-    if (skillPlayed) {
-        playAnimation(type, skillUserLocation, targetLocation);
+function playSkill(type, values, skillUserLocation, targetLocation) {
+    var isRoundDone = parseInt(localStorage.getItem("isRoundDone"));
+    if (isRoundDone == 1) {
+        playBarsUser(values);
+        if (skillPlayed) {
+            localStorage.setItem("isRoundDone", 0);
+            playAnimation(type, skillUserLocation, targetLocation);
+            var values = [monster['enemyHp'], monster['enemyEn'], monster['userHp'], monster['userEn']]
+            setTimeout(() => {
+                skillPlayed = false;
+                playBarsMonster(values);
+                if (skillPlayed) {
+                    playAnimation(skillType.attack, targetLocation, skillUserLocation);
+                } else {
+                    playAnimation(skillType.heal, targetLocation, skillUserLocation);
+                }
+            }, ANITIME);
+            
+        }    
     }
-    
 }
 
 function playAnimation(type, skillUserLocation, targetLocation) {
@@ -83,7 +96,7 @@ function playAnimation(type, skillUserLocation, targetLocation) {
     }, ANITIME);
 }
 
-function playBars(values) {
+function playBarsUser(values) {
     if (currentUserEn + values[3] >= 0) {
         playHp(values[0], chars.monster);
         playEn(values[1], chars.monster);

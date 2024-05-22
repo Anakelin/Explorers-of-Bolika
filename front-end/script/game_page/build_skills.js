@@ -137,8 +137,8 @@ function mouseoverSkillCamp2() {
 }
 
 function playConversion() {
-    var conversionValue = 10;
-    var moneyCost = 15;
+    var conversionValue = 40;
+    var moneyCost = 20;
     var money = parseInt(localStorage.getItem('explore-meta-money'));
     var shards = parseInt(localStorage.getItem('explore-meta-shards'));
     if (money >= moneyCost) {
@@ -151,7 +151,7 @@ function playConversion() {
     }
 }
 
-function playHealRest() {
+function playHealRest() { 
     var shardCost = 350;
     var shards = parseInt(localStorage.getItem('explore-meta-shards'));
     if (shards >= shardCost) {

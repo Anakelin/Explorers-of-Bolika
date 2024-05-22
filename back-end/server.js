@@ -103,6 +103,16 @@ io.on('connection', (socket) => {
         );
     });
 
+    socket.on('requestMonsters', (data) => {
+        db.all(QUERIES.REQUEST_MONSTERS,
+            data['location'], data['difficulty'],
+            function (err, monsters) {
+                console.log(monsters);
+                socket.emit('receiveMonsters', monsters);
+            }
+        );
+    })
+
     socket.on('gameCanStart', () => {
         socket.emit('gameStart');
     });
