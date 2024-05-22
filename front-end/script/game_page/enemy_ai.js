@@ -24,5 +24,4 @@ function playBarsMonster(values) {
     } else {
         playEn(maxMonsterEn / 4, chars.monster);
     }
-    localStorage.setItem("isRoundDone", 1);
 }

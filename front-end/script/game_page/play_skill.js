@@ -48,6 +48,9 @@ function playSkill(type, values, skillUserLocation, targetLocation) {
                 } else {
                     playAnimation(skillType.heal, targetLocation, skillUserLocation);
                 }
+                setTimeout(() => {
+                    localStorage.setItem("isRoundDone", 1);
+                },ANITIME);
             }, ANITIME);
             
         }    
@@ -56,7 +59,6 @@ function playSkill(type, values, skillUserLocation, targetLocation) {
 
 function playAnimation(type, skillUserLocation, targetLocation) {
     var skillUser = "";
-    var direction = 1;
     var skillUserAnimation = [];
     var targetAnimation = [];
     if (skillUserLocation.includes('torchbearers')) {
@@ -69,7 +71,6 @@ function playAnimation(type, skillUserLocation, targetLocation) {
         skillTarget = 'user-char';
         skillUserAnimation = enemyAttack;
         targetAnimation = userDefend;
-        direction = -1;
     }
     
     var user = getDiv(skillUser);
@@ -81,6 +82,7 @@ function playAnimation(type, skillUserLocation, targetLocation) {
             transform: skillUserAnimation,
             easing: ['ease-in', 'ease-out'],
         }, ANITIME);
+        console.log(targetLocation);
         target.style = `background-image: url("${targetLocation}/defend.png");`;
         target.animate({
             transform: targetAnimation,

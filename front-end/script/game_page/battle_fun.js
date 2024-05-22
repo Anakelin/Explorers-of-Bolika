@@ -45,7 +45,7 @@ function startBattle(type) {
     maxMonsterHp = monster['maxHP'];
     maxMonsterEn = monster['maxEn'];
     currentMonsterHp = maxMonsterHp;
-    currentMonsterEn = maxUserEn;
+    currentMonsterEn = maxMonsterEn;
     enemyLocation = `./resources/media/char/enemy/${monster['location']}/${monster['filename']}`;    
     getDiv(monsterSpriteId).style = `background-image: url("${enemyLocation}/base.png");`;
     
@@ -68,8 +68,10 @@ function endBattle(isWin) {
         updateMetaData(money, shards);
     } else {
         user['loss'] = user['loss'] != DATALIMIT ? user['loss'] + 1 : user['loss'];
+        user['currency'] = user['currency'] / 2;
         socket.emit("updateAccountEndBattle", user);
         alertMessage("You lost !");
+        
         localStorage.setItem('isLoggedIn',true);        
     }
 }
