@@ -92,4 +92,44 @@
     width: calc(100% - var(--left-box-width));
     border-left: 1.5vw solid transparent;
     border-image: var(--border-y);
+    overflow-y: scroll;
+    font-size: 2vw;
+    scroll-behavior: auto;
+        scrollbar-color: var(--blackblackgrey) transparent;
+        scrollbar-width: thin;
+        overflow: scroll;
+        scroll-behavior: auto;
+}
+
+.content-back {
+    background-size: cover;
+}
+
+.table {
+    position: absolute;
+    top: 8%;
+    background-color: var(--blacken);
+    border: 2vw solid transparent;
+    border-image: var(--border);
+}
+
+td {
+    width: fit-content;
+    border: 1.5vw solid transparent;
+    border-image: var(--border);
+}
+
+.request-valid,.request-invalid {
+    width: 16%;
+    aspect-ratio: 1;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.request-valid {
+    background-image: url("../../resources/media/pageres/valid_request.png");
+}
+.request-invalid  {
+    background-image: url("../../resources/media/pageres/invalid_request.png");
 }

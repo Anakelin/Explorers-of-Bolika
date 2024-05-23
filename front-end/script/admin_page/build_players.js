@@ -24,10 +24,18 @@ const defaultValue = 0;
 const defaultName = "Martin";
 var playerList = document.getElementById("top-players");
 
-socket.on("receiveTopUsers", (players) => {
+socket.on("updateUsersData", (data) => {
+    var players = data[0];
+    var playerTot = data[1][0]['totalPlayers'];
     for (let i = 0; i < players.length; i++) {
         playerList.append(buildPlayer(i, players[i])); 
     }
+    //Get total players
+    getDiv('total-player-value').innerHTML = playerTot;
+    getDiv('currency-avg').innerHTML = Math.round(data[2][0]['currency']);
+    getDiv('win-avg').innerHTML = Math.round(data[2][0]['win']);
+    getDiv('loss-avg').innerHTML = Math.round(data[2][0]['loss']);
+    getDiv('bought-avg').innerHTML = Math.round(data[2][0]['torchbearers']);
 })
 
 function buildList() {
@@ -88,5 +96,5 @@ function buildInfoBox (titleText, IDvalue, data) {
 }
 
 
-socket.emit('requestTopUsers');
+socket.emit('requestUsersData');
 //window.onload = buildList;

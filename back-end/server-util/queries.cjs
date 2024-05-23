@@ -32,6 +32,12 @@ const QUERIES =
         FROM Torchbearer as t
         ORDER BY t.id;
     `,
+    CHECK_BOUGHT_BEARERS:
+        `
+        SELECT bearer
+        FROM Roster
+        WHERE Roster.user = ?
+    `,
     SKILL_DATA: 
     `
         SELECT s.name, s.filename, s.hpEnemy, s.enEnemy, s.hpUser, s.enUser, s.description, s.torchbearer as user
@@ -65,14 +71,46 @@ const QUERIES =
         AND password = ?
     `
     ,
-    REQUEST_REQUEST_DATA: ``,
-    REQUEST_DELETE: ``,
+    REQUEST_REQUESTS_DATA: `
+    SELECT p.username as "player", t.name as "char", r.buydate
+    FROM Request as re, Roster as r,
+    Player as p, Torchbearer as t
+    WHERE re.receipt = r.id
+    AND r.user = p.id
+    AND r.bearer = t.id
+    `,
+    DELETE_REQUEST_DATA: `
+    DELETE FROM Request as r
+    WHERE r.receipt IN (
+        SELECT re.id
+        FROM Roster as re
+        WHERE re.id= ?
+    );
+
+    DELETE FROM Roster as re
+    WHERE re.id= ?;
+    `,
     REQUEST_TOP_PLAYERS:
     `
         SELECT p.username, p.currency, p.win, p.loss
         FROM Player as p
         ORDER BY p.win DESC, p.currency DESC, p.loss ASC
 		LIMIT 10
+    `,
+    REQUEST_AVG_PLAYER:
+    `
+        SELECT avg(currency) as "currency", avg(win) as "win", avg(loss) as "loss",avg(buytorch) as "torchbearers"
+        FROM (
+            SELECT count(*) as buytorch
+            FROM Roster as r
+            GROUP BY r.user
+        ), Player as p;
+    `
+    ,
+    REQUEST_TOTAL_PLAYERS:
+        `
+        SELECT count(*) as totalPlayers
+        FROM Player
     `
     ,
     INSERT_ROW:

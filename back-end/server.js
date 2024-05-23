@@ -47,6 +47,11 @@ io.on('connection', (socket) => {
         io.emit('playerCount', Object.keys(userSockets).length);
     });
 
+    socket.on('adminConnection', () => {
+        delete userSockets[socket.id];
+        io.emit('playerCount', Object.keys(userSockets).length);
+    });
+
     socket.on('checkUser', (data) => {
         db.all(QUERIES.REQUEST_ACCOUNT_DATA, data['username'], data['password'], function (err, user) {
             if (user.length != 0) {
@@ -78,10 +83,27 @@ io.on('connection', (socket) => {
         });
     })
 
-    socket.on('requestTopUsers', (charId) => {
-        db.all(QUERIES.REQUEST_TOP_PLAYERS, charId, function (err, players) {
-            socket.emit('receiveTopUsers', players);
+    socket.on('requestUsersData', (charId) => {
+        db.all(QUERIES.REQUEST_TOP_PLAYERS, charId, function (err, topPlayers) {
+            db.all(QUERIES.REQUEST_TOTAL_PLAYERS, charId, function (err, playerTot) {
+                db.all(QUERIES.REQUEST_AVG_PLAYER, charId, function (err, avgPlayer) {
+                    var data = {
+                        0: topPlayers,
+                        1: playerTot,
+                        2: avgPlayer
+                    };
+                    socket.emit('updateUsersData', data);
+                });
+            });
         });
+    })
+
+    socket.on('requestRequestsData', (data) => {
+        db.all(QUERIES.REQUEST_REQUESTS_DATA,
+            function (err, data) {
+                socket.emit('buildTable', data);
+            }
+        );
     })
 
     socket.on('updateAccountEndBattle', (data) => {

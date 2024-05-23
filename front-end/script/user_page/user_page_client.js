@@ -93,7 +93,7 @@ socket.on('receiveSkills', (skillsData) => {
         getDiv(`hp-value-${i}`).innerHTML = skillsNormal[i]['hpEnemy'] != 0 ?
             Math.abs(skillsNormal[i]['hpEnemy']) :
             Math.abs(skillsNormal[i]['hpUser']);
-        getDiv(`en-value-${i}`).innerHTML = Math.abs(skillsNormal[i]['enUser']);
+        getDiv(`en-value-${i}`).innerHTML = skillsNormal[i]['enUser'];
         getDiv(`desc-${i}`).innerHTML = skillsNormal[i]['description'];
     }
     skillsNormal[3] = quickRest;

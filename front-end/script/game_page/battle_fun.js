@@ -70,6 +70,7 @@ function endBattle(isWin) {
     } else {
         user['loss'] = user['loss'] != DATALIMIT ? user['loss'] + 1 : user['loss'];
         user['currency'] = Math.floor(user['currency'] - (user['currency'] / 4));
+        user['currency'] = user['currency'] < 0 ? 0 : user['currency'];
         socket.emit("updateAccountEndBattle", user);
         alertMessage("You lost !");
         

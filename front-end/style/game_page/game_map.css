@@ -2,42 +2,6 @@
     transition: 300ms ease-out;
 }
 
-.wall {
-    background-color: transparent;
-}
-
-.room {
-    background-image: url("../../resources/media/pageres/room_icon.png");
-}
-
-.hall {
-    background-image: url("../../resources/media/pageres/hall_icon.png");
-}
-
-.spawn {
-    background-image: url("../../resources/media/pageres/entrance_icon.png");
-}
-
-.bonfire {
-    background-image: url("../../resources/media/pageres/temp_icon.png");
-}
-
-.treasure {
-    background-image: url("../../resources/media/pageres/treasure_icon.png");
-}
-
-.enem {
-    background-image: url("../../resources/media/pageres/enemy_icon.png");
-}
-
-.hall.move-cell {
-    background-image: url("../../resources/media/pageres/user_hall_move_icon.png");
-}
-
-.room.move-cell {
-    background-image: url("../../resources/media/pageres/user_room_move_icon.png");
-}
-
 .treasure,
 .bonfire,
 .enem,
@@ -67,13 +31,15 @@
     cursor: url("../../resources/media/pageres/arrow_interest.png"), auto;;
 }
 
-.hall.user-cell,
-.spawn.user-cell {
+.hall.user-cell{
     background-image: url("../../resources/media/pageres/user_hall_icon.png");
     opacity: 1;
+    background-size: 50% 50%;
+    background-position: center;
 }
 
-.room.user-cell {
+.room.user-cell,
+.spawn.user-cell{
     background-image: url("../../resources/media/pageres/user_room_icon.png");
     opacity: 1;
 }
@@ -83,4 +49,44 @@
 .hall.move-cell,.room.move-cell {
     opacity: 0.85;
     cursor: url("../../resources/media/pageres/arrow_highlight.png"), auto;
+}
+
+.wall {
+    background-color: transparent;
+}
+
+.room {
+    background-image: url("../../resources/media/pageres/room_icon.png");
+}
+
+.hall {
+    background-image: url("../../resources/media/pageres/hall_icon.png");
+    background-size: 50% 50%;
+    background-position: center;
+}
+
+.spawn {
+    background-image: url("../../resources/media/pageres/entrance_icon.png");
+}
+
+.bonfire {
+    background-image: url("../../resources/media/pageres/temp_icon.png");
+}
+
+.treasure {
+    background-image: url("../../resources/media/pageres/treasure_icon.png");
+}
+
+.enem {
+    background-image: url("../../resources/media/pageres/enemy_icon.png");
+}
+
+.hall.move-cell{
+    background-image: url("../../resources/media/pageres/user_hall_move_icon.png");
+    background-size: 50% 50%;
+    background-position: center;
+}
+
+.room.move-cell {
+    background-image: url("../../resources/media/pageres/user_room_move_icon.png");
 }

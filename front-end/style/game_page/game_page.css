@@ -92,6 +92,7 @@
     top: -3%;
     border: 1vh solid transparent;
     border-image: var(--border-x) ;
+    font-size: 1.5vw;
 }
 
 .skill-box,.map{

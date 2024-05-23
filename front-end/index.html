@@ -27,11 +27,11 @@
         <div class="inner-box-left">
           <div class="title">Game Info</div>
           <div class="server-info tot info-box">
-            <div class="mini-title">Total Players:</div>
+            <div class="mini-title">Total Player Accounts:</div>
             <div id="total-player-value">0</div>
           </div>
           <div class="server-info act info-box">
-            <div class="mini-title">Players Active:</div>
+            <div class="mini-title">Users Active:</div>
             <div id="player-active-value">0</div>
           </div>
           <div class="users-info ave">
@@ -59,8 +59,12 @@
             </div>
           </div>
           </div>
+          <div class="inner-box-right">
+            <table id="request-table" class="table">             
+            </table>
+          </div>
         </div>
-        <div class="inner-box-right"></div>
+        
       </div>
       <div id="background" class="content-back  Fire"></div>
       <div class="content-back-back"></div>
@@ -68,8 +72,9 @@
     <script src="./script/loader.js"></script>
     <script src="./script/general.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./script/socket/playerCount.js"></script>
-    <script src="./script/admin_page/build_top_players.js"></script>
+    <script src="./script/admin_page/player_count.js"></script>
+    <script src="./script/admin_page/request_builder.js"></script>
+    <script src="./script/admin_page/build_players.js"></script>
   </body>
 
 </html>
