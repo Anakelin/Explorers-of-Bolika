@@ -9,7 +9,7 @@ if (localStorage.getItem('isLoggedIn') === null) {
 let backgrounds = ["Grave", "Ruins", "Woods", "Bog", "Fire"];
 localStorage.setItem('locationAll', JSON.stringify(backgrounds));
 let difId = "diff-name";
-const diffEasy = 0.75;
+const diffEasy = 0.5;
 const diffNormal = 1.0;
 const diffHard = 1.5;
 

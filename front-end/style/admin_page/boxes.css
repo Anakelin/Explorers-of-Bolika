@@ -108,6 +108,9 @@
 .table {
     position: absolute;
     top: 8%;
+    min-width: 100%;
+    min-height: 100%;
+    display: table;
     background-color: var(--blacken);
     border: 2vw solid transparent;
     border-image: var(--border);

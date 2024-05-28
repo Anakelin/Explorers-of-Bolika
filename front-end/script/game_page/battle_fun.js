@@ -64,6 +64,15 @@ function endBattle(isWin) {
         var monsterMoney = (maxMonsterHp + maxMonsterEn) / 10 * mapDifficulty;
         var shards = parseInt(localStorage.getItem('explore-meta-shards'));
         var monsterShards = (maxMonsterHp + maxMonsterEn) / 2 * (2 / mapDifficulty);
+        var experience;
+
+        if (monster['type'] == "Room") {
+            monsterShards *= 1.5;
+            experience = 10 * mapDifficulty;
+        } else {
+            experience = 30 * mapDifficulty;
+        }
+
         shards += Math.floor(monsterShards);
         money += Math.floor(monsterMoney) + 5;
         updateMetaData(money, shards);
@@ -71,10 +80,12 @@ function endBattle(isWin) {
         user['loss'] = user['loss'] != DATALIMIT ? user['loss'] + 1 : user['loss'];
         user['currency'] = Math.floor(user['currency'] - (user['currency'] / 4));
         user['currency'] = user['currency'] < 0 ? 0 : user['currency'];
-        socket.emit("updateAccountEndBattle", user);
-        alertMessage("You lost !");
+        alertMessage("You lost some currency when trying to escape...");
+        setTimeout(() => {
+            localStorage.setItem('isLoggedIn', true);        
+            socket.emit("updateAccountEndBattle", user);
+        }, 1000);
         
-        localStorage.setItem('isLoggedIn',true);        
     }
 }
 

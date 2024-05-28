@@ -117,14 +117,14 @@ function playBarsUser(values) {
 
         if (currentMonsterHp <= 0) {
             isDead = true;
-            setTimeout(function () {
+            setTimeout(() => {
                 resetMonster();
                 endBattle(true);
             }, DEATHTIME)
 
 
         } else if (currentUserHp <= 0) {
-            setTimeout(function () {
+            setTimeout(() => {
                 endBattle(false);
             }, DEATHTIME);
         }

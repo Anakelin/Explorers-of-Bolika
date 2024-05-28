@@ -9,15 +9,15 @@ function playBarsMonster(values) {
         skillPlayed = true;
 
         if (currentMonsterHp <= 0) {
-            setTimeout(function () {
+            setTimeout(() => {
                 endBattle(true);
-                setTimeout(function () {
+                setTimeout(() => {
                     resetMonster();
                 }, RESETTIME);
             }, DEATHTIME)
 
         } else if (currentUserHp <= 0) {
-            setTimeout(function () {
+            setTimeout(() => {
                 endBattle(false);
             }, DEATHTIME);
         }

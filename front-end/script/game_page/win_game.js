@@ -16,12 +16,12 @@ function winGame() {
     user['currency'] = user['currency'] + gainedCurrency < DATALIMIT ? user['currency'] + gainedCurrency : DATALIMIT;
 
     alertMessage("You succesfully looted the location!");
-    socket.emit("updateAccountEndBattle", user);
+    setTimeout(() => {
+        socket.emit("updateAccountEndBattle", user);
+    },1000)
 }
 
 socket.on('updateAccountEndBattleSuccess', () => {
     localStorage.setItem('user', JSON.stringify(user));        
-    setTimeout(() => {
-        pageChange(userUrl);
-    }, 1200)
+    pageChange(userUrl);
 })

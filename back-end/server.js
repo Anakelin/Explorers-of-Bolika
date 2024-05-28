@@ -56,7 +56,11 @@ io.on('connection', (socket) => {
         db.all(QUERIES.REQUEST_ACCOUNT_DATA, data['username'], data['password'], function (err, user) {
             if (user.length != 0) {
                 db.all(QUERIES.TORCHBEARER_DATA, function (err, chars) {
-                    socket.emit('userAccess-success', [user[0], chars]);
+                    db.all(QUERIES.CHECK_TORCHBEARER_BOUGHT,
+                        user[0]['id'],
+                        function (err, bought) {
+                            socket.emit('userAccess-success', [user[0], chars, bought]);
+                        });
                 });
             } else {
                 socket.emit('userAccess-failed');
@@ -104,7 +108,33 @@ io.on('connection', (socket) => {
                 socket.emit('buildTable', data);
             }
         );
-    })
+    });
+
+    socket.on('refundRequest', (rawId) => {
+        var id = rawId.split("-")[1];
+        socket.emit('refundMessage', true);
+        /*
+        db.all(QUERIES.APPLY_REFUND,
+            id,
+            function (err, res) {
+                socket.emit('refundMessage', true);
+            }
+        );
+        */
+    });
+
+    socket.on('refundRequestDeny', (rawId) => {
+        var id = rawId.split("-")[1];
+        socket.emit('refundMessage', false);
+        /*
+        db.all(QUERIES.DENY_REFUND,
+            id,
+            function (err, res) {
+                socket.emit('refundMessage', false);
+            }
+        );
+        */
+    });
 
     socket.on('updateAccountEndBattle', (data) => {
         db.all(QUERIES.UPDATE_ACCOUNT_END_EXPLORE,
@@ -129,7 +159,6 @@ io.on('connection', (socket) => {
         db.all(QUERIES.REQUEST_MONSTERS,
             data['location'], data['difficulty'],
             function (err, monsters) {
-                console.log(monsters);
                 socket.emit('receiveMonsters', monsters);
             }
         );

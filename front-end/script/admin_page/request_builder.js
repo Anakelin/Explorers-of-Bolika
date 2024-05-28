@@ -18,9 +18,12 @@ var table = getDiv('request-table');
 socket.emit('requestRequestsData');
 
 socket.on('buildTable', (data) => {
-    console.log(data);
-    buildTable(data);
-    
+    buildTable(data);   
+    var requestNumber = document.getElementById("request-table").rows.length;
+    console.log(requestNumber);
+    if (requestNumber == 0) {
+        updateTableEmpty();
+    }
 });
 
 
@@ -43,6 +46,9 @@ function buildTable(data) {
         var requestUser = document.createElement("td");
         var requestValidity = document.createElement("td");
 
+        //id for events
+        requestBox.id = "request-" + data[i]['id'];
+
         //Add style
         requestBox.classList.add("request-box");
         requestDate.classList.add("request-date");
@@ -51,14 +57,18 @@ function buildTable(data) {
 
         if (isValid(data[i]['buydate'],today)) {
             requestValidity.classList.add("request-valid");   
-            requestValidity.addEventListener('click', () => {
-                window.alert("valid");
-            });
+            requestValidity.addEventListener('click',
+                (e) => {
+                    refundAccept(e.target.parentNode.id);
+                }
+            );
         } else {
             requestValidity.classList.add("request-invalid");
-            requestValidity.addEventListener('click', () => {
-                window.alert("not valid");
-            });
+            requestValidity.addEventListener('click',
+                (e) => {
+                    refundRefuse(e.target.parentNode.id);
+                }
+            );
         }
         
 

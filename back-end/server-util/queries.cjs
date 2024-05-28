@@ -20,7 +20,7 @@ const QUERIES =
     ,
     REQUEST_ACCOUNT_DATA:
     `
-        SELECT username,email,currency,win,loss,password
+        SELECT username,email,currency,win,loss,password,id
         FROM PLAYER
         WHERE username = ?
         AND password = ?;
@@ -32,7 +32,8 @@ const QUERIES =
         FROM Torchbearer as t
         ORDER BY t.id;
     `,
-    CHECK_BOUGHT_BEARERS:
+
+    CHECK_TORCHBEARER_BOUGHT:
         `
         SELECT bearer
         FROM Roster
@@ -72,14 +73,14 @@ const QUERIES =
     `
     ,
     REQUEST_REQUESTS_DATA: `
-    SELECT p.username as "player", t.name as "char", r.buydate
+    SELECT re.id, p.username as "player", t.name as "char", r.buydate
     FROM Request as re, Roster as r,
     Player as p, Torchbearer as t
     WHERE re.receipt = r.id
     AND r.user = p.id
     AND r.bearer = t.id
     `,
-    DELETE_REQUEST_DATA: `
+    APPLY_REFUND: `
     DELETE FROM Request as r
     WHERE r.receipt IN (
         SELECT re.id
@@ -89,6 +90,14 @@ const QUERIES =
 
     DELETE FROM Roster as re
     WHERE re.id= ?;
+    `,
+    DENY_REFUND: `
+    DELETE FROM Request as r
+    WHERE r.receipt IN (
+        SELECT re.id
+        FROM Roster as re
+        WHERE re.id= ?
+    );
     `,
     REQUEST_TOP_PLAYERS:
     `
@@ -163,7 +172,7 @@ const QUERIES =
 
     REQUEST_MONSTERS:
     `
-        SELECT m.filename, m.maxHP, m.maxEn, m.location, s.enemyHp, s.enemyEn, s.userHp, s.userEn
+        SELECT m.filename, m.maxHP, m.maxEn, m.location, m.type, s.enemyHp, s.enemyEn, s.userHp, s.userEn
         FROM Monster as m, SkillMonster as s
         WHERE s.monster = m.id
         AND m.location = ?

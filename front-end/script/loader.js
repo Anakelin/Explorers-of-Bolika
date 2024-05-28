@@ -1,4 +1,4 @@
-document.onreadystatechange = function () {
+document.onreadystatechange = () => {
     var state = document.readyState;
     const contentId = 'content';
     const loaderId = 'loader-back';

@@ -41,16 +41,16 @@ function addCell(size, i, j, type) {
     div.setAttribute("style", "width:" + cellSize + "px;height:" + cellSize + "px");
     div.id = i + "-" + j;
 
-    div.addEventListener("mouseover", function () {
+    div.addEventListener("mouseover", () => {
         if (!div.classList.contains(userClass) && !div.classList.contains(wallClass)) {
             div.classList.add(highlightClass);
         }
     })
-    div.addEventListener("mouseout", function () {
+    div.addEventListener("mouseout", () => {
         div.classList.remove(highlightClass);
     })
 
-    div.addEventListener("click", function () {
+    div.addEventListener("click", () => {
         if (isClassPresent(div.id, moveClass)) {
             //Remove previous user position
             removeClass(userClass);
